@@ -140,7 +140,7 @@
   const pages = {
     home: () => html`
       <main>
-        <section class="hero">
+        <section class="hero hero-full-cover">
           <div class="hero-content">
             <p class="eyebrow">Premium skin, hair and laser clinic in Chemmad</p>
             <h1>Refined dermatology and aesthetic care for healthier, confident skin.</h1>
@@ -150,11 +150,6 @@
               <a class="button secondary call-button" href="${data.clinic.phoneUrl}">Call Now</a>
               ${button("View Treatments", "treatments.html", "secondary")}
             </div>
-          </div>
-          <div class="hero-panel">
-            <span>Dermis Aesthetics</span>
-            <h2>Skin | Hair | Laser</h2>
-            <p>Modern aesthetic care with a calm clinic experience.</p>
           </div>
         </section>
 
@@ -245,7 +240,7 @@
             <h1>Personalised care for skin, hair and laser wellness.</h1>
             <p>Dermis Aesthetics is a modern clinic focused on thoughtful consultation, advanced treatments, and comfortable care for every skin and hair concern.</p>
           </div>
-          <img class="about-hero-image" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80" alt="Modern dermatology clinic treatment room">
+          <img class="about-hero-image" src="assets/images/clinic-hero.jpg" alt="Modern dermatology clinic treatment room">
         </section>
         <section class="section split about-content">
           <div>

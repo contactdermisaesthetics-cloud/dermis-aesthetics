@@ -133,7 +133,7 @@ a {
   color: #ffffff;
   background:
     linear-gradient(90deg, rgba(31, 41, 51, 0.78), rgba(31, 41, 51, 0.48), rgba(168, 45, 143, 0.2)),
-    url("https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1800&q=80") center/cover;
+    url("../images/clinic-hero.jpg") center/cover;
 }
 
 .hero-full-cover .hero-content {
@@ -153,6 +153,10 @@ a {
   color: #ffffff;
   border-color: rgba(255, 255, 255, 0.46);
   background: rgba(255, 255, 255, 0.12);
+}
+
+.hero-panel {
+  display: none !important;
 }
 
 .hero-content {
@@ -713,9 +717,9 @@ a {
 
   .site-header {
     position: static;
-    gap: 14px;
+    gap: 12px;
     min-height: auto;
-    padding: 16px 18px 18px;
+    padding: 14px 18px 14px;
   }
 
   .site-header,
@@ -727,19 +731,27 @@ a {
 
   .header-right {
     width: 100%;
-    gap: 13px;
+    gap: 8px;
   }
 
   .nav {
     width: 100%;
     flex-direction: row;
-    flex-wrap: wrap;
-    gap: 8px 16px;
+    flex-wrap: nowrap;
+    gap: 14px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
   }
 
   .nav a {
     padding: 4px 0;
-    font-size: 14px;
+    font-size: 13px;
+    white-space: nowrap;
   }
 
   .logo-container {
@@ -752,38 +764,36 @@ a {
   }
 
   .nav-cta {
-    min-height: 40px;
-    padding: 11px 22px;
-    font-size: 15px;
+    display: none;
   }
 
   .hero {
     min-height: auto;
     grid-template-columns: 1fr;
     gap: 28px;
-    padding: 34px 18px 56px;
+    padding: 38px 18px 56px;
     align-items: start;
     width: 100%;
   }
 
   .hero-full-cover {
-    min-height: calc(100vh - 170px);
+    min-height: calc(100vh - 118px);
     background:
       linear-gradient(180deg, rgba(31, 41, 51, 0.78), rgba(31, 41, 51, 0.52), rgba(168, 45, 143, 0.28)),
-      url("https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80") center/cover;
+      url("../images/clinic-hero.jpg") center/cover;
   }
 
   .hero h1 {
     max-width: 100%;
-    font-size: clamp(34px, 10.5vw, 44px);
+    font-size: clamp(32px, 9.6vw, 42px);
     line-height: 1.12;
     overflow-wrap: anywhere;
   }
 
   .hero p {
     max-width: 100%;
-    font-size: 17px;
-    line-height: 1.7;
+    font-size: 16px;
+    line-height: 1.65;
   }
 
   .hero .eyebrow {
