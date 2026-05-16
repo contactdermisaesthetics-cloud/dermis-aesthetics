@@ -24,8 +24,14 @@
         <a class="brand logo-container" href="index.html" aria-label="${data.clinic.name} home">
           <img src="${data.clinic.logo}" alt="${data.clinic.name} Logo" class="site-logo">
         </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="sr-only">Menu</span>
+        </button>
         <div class="header-right">
-          <nav class="nav" aria-label="Main navigation">${navItems}</nav>
+          <nav class="nav" id="mobile-menu" aria-label="Main navigation">${navItems}</nav>
           <a class="nav-cta" href="contact.html">Book Appointment</a>
         </div>
       </header>
@@ -35,17 +41,35 @@
   function renderFooter() {
     return html`
       <footer class="site-footer">
-        <div class="footer-brand">
+        <div class="footer-top">
           <img src="${data.clinic.logo}" alt="${data.clinic.name} Logo" class="footer-logo">
-          <p>${data.clinic.location}<br>Phone: ${data.clinic.phone}</p>
+          <nav class="footer-nav" aria-label="Footer navigation">
+            ${data.nav.map((item) => `<a href="${item.url}">${item.label}</a>`).join("")}
+          </nav>
+          <a class="footer-cta" href="contact.html">Book Appointment</a>
         </div>
-        <div>
-          <h3>Quick Links</h3>
-          <p>${data.nav.map((item) => `<a href="${item.url}">${item.label}</a>`).join(" · ")}</p>
-        </div>
-        <div>
-          <h3>Social</h3>
-          <p><a href="#">Instagram</a> · <a href="#">Facebook</a> · <a href="#">Google</a></p>
+        <div class="footer-main">
+          <section>
+            <h3>Meet Dr. ${data.doctor.name}</h3>
+            <p><strong>${data.doctor.qualification}</strong></p>
+            <p>${data.doctor.bio}</p>
+          </section>
+          <section>
+            <h3>Get In Touch</h3>
+            <p><strong>Address</strong><br>${data.clinic.address}<br>${data.clinic.location}</p>
+            <div class="footer-hours">
+              <strong>Clinic Hours</strong>
+              ${data.clinic.hours.map((item) => `<p><span>${item.days}</span><em>${item.time}</em></p>`).join("")}
+            </div>
+            <p><strong>Phone</strong><br><a href="${data.clinic.phoneUrl}">${data.clinic.phone}</a></p>
+            <p><strong>Email</strong><br><a href="mailto:${data.clinic.email}">${data.clinic.email}</a></p>
+          </section>
+          <section>
+            <h3>Help</h3>
+            <div class="footer-link-list">
+              ${data.footerLinks.map((item) => `<a href="${item.url}">${item.label}</a>`).join("")}
+            </div>
+          </section>
         </div>
       </footer>
     `;
@@ -116,7 +140,7 @@
     return html`
       <div class="clinic-hours">
         ${data.clinic.hours.map((item) => html`
-          <p><strong>${escapeHtml(item.days)}:</strong> ${escapeHtml(item.time)}</p>
+          <p><strong>${escapeHtml(item.days)}</strong><span>${escapeHtml(item.time)}</span></p>
         `).join("")}
       </div>
     `;
@@ -141,6 +165,8 @@
     home: () => html`
       <main>
         <section class="hero hero-full-cover">
+          <video class="hero-video" src="${data.clinic.heroVideo}" poster="${data.clinic.heroPoster}" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+          <div class="hero-overlay"></div>
           <div class="hero-content">
             <p class="eyebrow">Premium skin, hair and laser clinic in Chemmad</p>
             <h1>Refined dermatology and aesthetic care for healthier, confident skin.</h1>
@@ -254,6 +280,18 @@
             <p><strong>Phone:</strong><br><a href="${data.clinic.phoneUrl}">${data.clinic.phone}</a></p>
           </aside>
         </section>
+        <section class="section about-story">
+          <div class="section-heading">
+            <p class="eyebrow">Our Approach</p>
+            <h2>Thoughtful dermatology and aesthetic care.</h2>
+          </div>
+          <div class="about-story-copy">
+            <p>Dermis Aesthetics is a trusted skin and hair clinic in Chemmad, Malappuram, offering advanced dermatology and aesthetic treatments tailored to individual skin and hair concerns. With a focus on patient-centered care, the clinic combines medical expertise, modern technology, and personalized treatment plans to deliver safe, effective, and natural-looking results.</p>
+            <p>At Dermis Aesthetics, every patient receives detailed attention from consultation to treatment. Our approach begins with understanding your skin type, concerns, lifestyle, and treatment goals before recommending the most suitable solutions. We believe that effective skin and hair care starts with the right diagnosis, honest guidance, and treatments designed specifically for you.</p>
+            <p>Our clinic provides treatment for a wide range of concerns including acne, pigmentation, acne scars, hair fall, dandruff, uneven skin tone, ageing skin, and other common dermatological conditions. Along with clinical skin care, Dermis Aesthetics also offers advanced aesthetic treatments aimed at enhancing skin health and confidence while maintaining natural results.</p>
+            <p>Known for professional care and a comfortable patient experience, Dermis Aesthetics has become a preferred choice for people seeking expert skin and hair treatment in Malappuram. Our commitment is simple: to provide quality dermatology and aesthetic care with transparency, expertise, and lasting results.</p>
+          </div>
+        </section>
       </main>
     `,
 
@@ -303,7 +341,7 @@
             <p>${data.clinic.location}<br>${data.clinic.address}</p>
             <p><strong>Phone:</strong> ${data.clinic.phone}</p>
             <div class="hours-block">
-              <strong>Hours:</strong>
+              <strong>Clinic Opens</strong>
               ${clinicHours()}
             </div>
             <div class="contact-actions">
@@ -340,4 +378,20 @@
   };
 
   root.innerHTML = renderHeader() + (pages[page] || pages.home)() + renderFooter();
+
+  const menuToggle = document.querySelector(".menu-toggle");
+  const headerRight = document.querySelector(".header-right");
+  if (menuToggle && headerRight) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = headerRight.classList.toggle("is-open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  }
+
+  const heroVideo = document.querySelector(".hero-video");
+  if (heroVideo) {
+    heroVideo.muted = true;
+    heroVideo.load();
+    heroVideo.play().catch(() => {});
+  }
 })();

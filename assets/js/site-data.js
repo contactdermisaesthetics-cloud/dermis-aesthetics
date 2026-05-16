@@ -9,12 +9,15 @@ window.DERMIS_SITE = {
     phoneUrl: "tel:+918113860971",
     whatsapp: "+91 8113 860 971",
     whatsappUrl: "https://api.whatsapp.com/send?phone=918113860971&text=Hi%20Dermis%20Aesthetics%2C%20I%20would%20like%20to%20book%20an%20appointment.",
+    email: "contact.dermisaesthetics@gmail.com",
     hours: [
-      { days: "Monday to Saturday", time: "4:30 PM - 8:30 PM" },
-      { days: "Sunday", time: "11:30 AM - 2:00 PM" }
+      { days: "MON-SAT", time: "4:30 PM - 8:30 PM" },
+      { days: "SUN", time: "11:30 AM - 2:00 PM" }
     ],
     mapEmbed: "https://www.google.com/maps?q=Dermis%20Aesthetics%2C%20Kozhilode%20Road%2C%20near%20Barat%20Petrol%20Pump%2C%20Chemmad%2C%20Kozhikode%2C%20Kerala%20676306&output=embed",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Dermis%20Aesthetics%2C%20Kozhilode%20Road%2C%20near%20Barat%20Petrol%20Pump%2C%20Chemmad%2C%20Kozhikode%2C%20Kerala%20676306",
+    heroVideo: "assets/videos/hero-merged.webm",
+    heroPoster: "assets/images/clinic-hero.jpg",
     googleProfile: "https://share.google/r5l3Vrz52F9jPRcXr",
     areas: ["Chemmad", "Parappanangadi", "Tirurangadi"],
     listings: [
@@ -28,6 +31,20 @@ window.DERMIS_SITE = {
       "Bing Places"
     ]
   },
+
+  doctor: {
+    name: "Raoof Malayil",
+    qualification: "MBBS, MD Dermatology",
+    bio: "Dr. Raoof Malayil brings dermatology-focused clinical expertise to Dermis Aesthetics, guiding patients with thoughtful consultation and personalised care for skin, hair and aesthetic concerns."
+  },
+
+  footerLinks: [
+    { label: "Acne Care Guide", url: "qa.html" },
+    { label: "Dandruff Treatment", url: "qa.html" },
+    { label: "Laser Hair Reduction", url: "treatments.html" },
+    { label: "Location", url: "contact.html" },
+    { label: "Book Appointment", url: "contact.html" }
+  ],
 
   nav: [
     { id: "home", label: "Home", url: "index.html" },
