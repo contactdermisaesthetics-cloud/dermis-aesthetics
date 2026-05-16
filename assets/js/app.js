@@ -168,7 +168,7 @@
           <video class="hero-video" src="${data.clinic.heroVideo}" poster="${data.clinic.heroPoster}" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
           <div class="hero-overlay"></div>
           <div class="hero-content">
-            <p class="eyebrow">Premium skin, hair and laser clinic in Chemmad</p>
+            <p class="eyebrow">Premium skin, hair and laser clinic in Chemmad, Malappuram</p>
             <h1>Refined dermatology and aesthetic care for healthier, confident skin.</h1>
             <p>Dermis Aesthetics provides personalised acne treatment, pigmentation care, dandruff treatment, scalp consultation and skin rejuvenation near Parappanangadi and Tirurangadi.</p>
             <div class="actions">
