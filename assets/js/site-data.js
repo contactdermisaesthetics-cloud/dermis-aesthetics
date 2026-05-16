@@ -16,7 +16,7 @@ window.DERMIS_SITE = {
     ],
     mapEmbed: "https://www.google.com/maps?q=Dermis%20Aesthetics%2C%20Kozhilode%20Road%2C%20near%20Barat%20Petrol%20Pump%2C%20Chemmad%2C%20Kozhikode%2C%20Kerala%20676306&output=embed",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Dermis%20Aesthetics%2C%20Kozhilode%20Road%2C%20near%20Barat%20Petrol%20Pump%2C%20Chemmad%2C%20Kozhikode%2C%20Kerala%20676306",
-    heroVideo: "assets/videos/hero-merged.mp4",
+    heroVideo: "assets/videos/hero-merged.mp4?v=3",
     heroPoster: "assets/images/clinic-hero.jpg",
     googleProfile: "https://share.google/r5l3Vrz52F9jPRcXr",
     areas: ["Chemmad", "Parappanangadi", "Tirurangadi"],
