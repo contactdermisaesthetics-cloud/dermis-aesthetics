@@ -18,6 +18,7 @@
     const navItems = data.nav.map((item) => html`
       <a href="${item.url}" class="${item.id === page ? "active" : ""}">${item.label}</a>
     `).join("");
+    const headerCta = page === "home" ? "" : `<a class="nav-cta" href="contact.html">Book Appointment</a>`;
 
     return html`
       <header class="site-header">
@@ -32,7 +33,7 @@
         </button>
         <div class="header-right">
           <nav class="nav" id="mobile-menu" aria-label="Main navigation">${navItems}</nav>
-          <a class="nav-cta" href="contact.html">Book Appointment</a>
+          ${headerCta}
         </div>
       </header>
     `;
@@ -87,13 +88,66 @@
     `;
   }
 
+  function renderWhatsAppPopup() {
+    return html`
+      <button class="whatsapp-float" type="button" aria-label="Open WhatsApp chat">
+        ${whatsappIcon()}
+      </button>
+      <aside class="whatsapp-popup" aria-live="polite" aria-label="WhatsApp appointment message">
+        <button class="whatsapp-popup-close" type="button" aria-label="Close WhatsApp message">×</button>
+        <div class="whatsapp-popup-icon">${whatsappIcon()}</div>
+        <div class="whatsapp-popup-copy">
+          <strong>Need help booking?</strong>
+          <span>Tell us your concern and continue on WhatsApp.</span>
+        </div>
+        <label class="whatsapp-popup-field">
+          <span>Your concern or question</span>
+          <textarea rows="3" placeholder="Example: I need acne treatment consultation"></textarea>
+        </label>
+        <a class="whatsapp-popup-button" href="${data.clinic.whatsappUrl}" target="_blank" rel="noopener">
+          ${whatsappIcon()} Chat on WhatsApp
+        </a>
+      </aside>
+    `;
+  }
+
   function pageHero(eyebrow, title, text) {
     return html`
       <section class="page-hero">
         ${eyebrow ? `<p class="eyebrow">${eyebrow}</p>` : ""}
         <h1>${title}</h1>
-        <p>${text}</p>
+        ${text ? `<p>${text}</p>` : ""}
       </section>
+    `;
+  }
+
+  function renderWhatsAppChatbox() {
+    return html`
+      <button class="whatsapp-float" type="button" aria-label="Open WhatsApp chat">
+        ${whatsappIcon()}
+      </button>
+      <aside class="whatsapp-popup whatsapp-chatbox" aria-live="polite" aria-label="WhatsApp chat preview">
+        <div class="whatsapp-chat-header">
+          <div class="whatsapp-chat-avatar">${whatsappIcon()}</div>
+          <div class="whatsapp-chat-title">
+            <strong>Dermis Aesthetics</strong>
+          </div>
+          <button class="whatsapp-popup-close" type="button" aria-label="Close WhatsApp chat">×</button>
+        </div>
+        <div class="whatsapp-chat-body">
+          <div class="whatsapp-bubble incoming">Hi, welcome to Dermis Aesthetics.</div>
+          <div class="whatsapp-bubble incoming">Please type your concern or question below. We will help guide you.</div>
+        </div>
+        <div class="whatsapp-chat-compose">
+          <label class="sr-only" for="whatsappConcern">Your concern or question</label>
+          <textarea id="whatsappConcern" class="whatsapp-chat-input" rows="1" placeholder="Type your concern"></textarea>
+          <a class="whatsapp-popup-button" href="${data.clinic.whatsappUrl}" target="_blank" rel="noopener" aria-label="Send message on WhatsApp">
+            <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+              <path d="M5 6.8 27 16 5 25.2v-7.4L17.5 16 5 14.2V6.8Z"/>
+            </svg>
+          </a>
+        </div>
+      </aside>
     `;
   }
 
@@ -157,6 +211,39 @@
           <h3>${escapeHtml(treatment.title)}</h3>
           <p>${escapeHtml(treatment.text)}</p>
         </div>
+      </article>
+    `).join("");
+  }
+
+  function whyChooseCards() {
+    const reasons = [
+      {
+        title: "Dermatology-led care",
+        text: "Consultations are guided by clinical understanding, careful assessment and treatment choices suited to your concern.",
+        icon: `<path d="M76 26c20 18 34 36 34 58a34 34 0 0 1-68 0c0-22 14-40 34-58Z"/><path d="M62 84h28"/><path d="M76 70v28"/>`
+      },
+      {
+        title: "Personalised treatment planning",
+        text: "Your skin type, history, lifestyle and goals are considered before recommending acne, pigmentation, hair or laser care.",
+        icon: `<path d="M42 44h68v68H42z"/><path d="M58 62h36"/><path d="M58 78h28"/><path d="M58 94h20"/><path d="M104 36l12 12"/>`
+      },
+      {
+        title: "Clear, honest guidance",
+        text: "We explain what is suitable, what to expect and how to maintain results, so every decision feels informed.",
+        icon: `<path d="M42 78l22 22 46-52"/><path d="M44 44c20-20 52-20 72 0"/><path d="M44 112c20 20 52 20 72 0"/>`
+      },
+      {
+        title: "Modern aesthetic experience",
+        text: "A calm clinic environment, advanced procedures and result-focused care designed around comfort and confidence.",
+        icon: `<path d="M76 30v20"/><path d="M76 102v20"/><path d="M30 76h20"/><path d="M102 76h20"/><path d="M48 48l14 14"/><path d="M90 90l14 14"/><path d="M104 48 90 62"/><path d="M62 90l-14 14"/><circle cx="76" cy="76" r="18"/>`
+      }
+    ];
+
+    return reasons.map((reason) => html`
+      <article class="why-card">
+        <svg viewBox="0 0 152 152" aria-hidden="true" focusable="false">${reason.icon}</svg>
+        <h2>${escapeHtml(reason.title)}</h2>
+        <p>${escapeHtml(reason.text)}</p>
       </article>
     `).join("");
   }
@@ -300,12 +387,41 @@
         ${pageHero(
           "",
           "Advanced skin, hair, laser and minor procedure services.",
-          "Dermis Aesthetics offers personalised aesthetic and dermatology-focused treatments including peeling, PRP, GFC, mesotherapy, microneedling, laser hair reduction, hydra facial and selected minor procedures."
+          ""
         )}
         <section class="local-seo-note" aria-label="Clinic location">
           <p>Located on Kozhilode Road, Chemmad, Dermis Aesthetics is a skin, hair and laser clinic for patients seeking professional aesthetic care in the area.</p>
         </section>
         <section class="section treatment-list">${treatmentCards()}</section>
+      </main>
+    `,
+
+    why: () => html`
+      <main>
+        <section class="why-hero">
+          <div class="why-hero-inner">
+            <p class="eyebrow">Why choose us</p>
+            <h1>Why Choose Dermis Aesthetics</h1>
+            <p>Thoughtful dermatology, personalised aesthetic care and a clinic experience designed around comfort, clarity and natural-looking confidence.</p>
+          </div>
+          <div class="why-grid">
+            ${whyChooseCards()}
+          </div>
+        </section>
+        <section class="section why-detail">
+          <div>
+            <p class="eyebrow">Care approach</p>
+            <h2>Focused care from consultation to follow-up.</h2>
+          </div>
+          <div>
+            <p>At Dermis Aesthetics, each treatment journey begins with listening. We take time to understand your concern, explain suitable options and guide you with care that feels calm, professional and realistic.</p>
+            <p>Whether you visit for acne, pigmentation, dandruff, hair fall, laser hair reduction or aesthetic skin treatments, the focus remains the same: safe planning, clear communication and results that support healthier-looking skin and hair over time.</p>
+            <div class="actions">
+              ${button("View Treatments", "treatments.html")}
+              ${button("Contact Clinic", "contact.html", "secondary")}
+            </div>
+          </div>
+        </section>
       </main>
     `,
 
@@ -377,7 +493,7 @@
     `
   };
 
-  root.innerHTML = renderHeader() + (pages[page] || pages.home)() + renderFooter();
+  root.innerHTML = renderHeader() + (pages[page] || pages.home)() + renderFooter() + renderWhatsAppChatbox();
 
   const menuToggle = document.querySelector(".menu-toggle");
   const headerRight = document.querySelector(".header-right");
@@ -393,5 +509,44 @@
     heroVideo.muted = true;
     heroVideo.load();
     heroVideo.play().catch(() => {});
+  }
+
+  const whatsappPopup = document.querySelector(".whatsapp-popup");
+  const whatsappFloat = document.querySelector(".whatsapp-float");
+  const whatsappPopupClose = document.querySelector(".whatsapp-popup-close");
+  const whatsappPopupInput = document.querySelector(".whatsapp-chat-input");
+  const whatsappPopupButton = document.querySelector(".whatsapp-popup-button");
+  const defaultWhatsappText = "Hi Dermis Aesthetics, I would like to book an appointment.";
+  const whatsappBaseUrl = "https://api.whatsapp.com/send?phone=918113860971&text=";
+  const updateWhatsappMessage = () => {
+    if (!whatsappPopupButton) return;
+    const concern = whatsappPopupInput?.value.trim();
+    const message = concern
+      ? `Hi Dermis Aesthetics, I would like to ask about: ${concern}`
+      : defaultWhatsappText;
+    whatsappPopupButton.setAttribute("href", whatsappBaseUrl + encodeURIComponent(message));
+  };
+  if (whatsappFloat) {
+    window.setTimeout(() => whatsappFloat.classList.add("is-visible"), 900);
+    whatsappFloat.addEventListener("click", () => {
+      whatsappFloat.classList.remove("is-visible");
+      whatsappPopup?.classList.add("is-visible");
+      whatsappPopupInput?.focus();
+    });
+  }
+  whatsappPopupInput?.addEventListener("input", updateWhatsappMessage);
+  updateWhatsappMessage();
+  whatsappPopupButton?.addEventListener("click", (event) => {
+    updateWhatsappMessage();
+    const targetUrl = whatsappPopupButton.getAttribute("href");
+    if (!targetUrl) return;
+    event.preventDefault();
+    window.open(targetUrl, "_blank", "noopener");
+  });
+  if (whatsappPopup && whatsappPopupClose) {
+    whatsappPopupClose.addEventListener("click", () => {
+      whatsappPopup.classList.remove("is-visible");
+      whatsappFloat?.classList.add("is-visible");
+    });
   }
 })();

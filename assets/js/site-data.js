@@ -50,6 +50,7 @@ window.DERMIS_SITE = {
     { id: "home", label: "Home", url: "index.html" },
     { id: "about", label: "About", url: "about.html" },
     { id: "treatments", label: "Treatments", url: "treatments.html" },
+    { id: "why", label: "Why Us", url: "why-choose-us.html" },
     { id: "qa", label: "Q&A", url: "qa.html" },
     { id: "contact", label: "Contact", url: "contact.html" }
   ],
