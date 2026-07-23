@@ -18,7 +18,7 @@
     const navItems = data.nav.map((item) => html`
       <a href="${item.url}" class="${item.id === page ? "active" : ""}">${item.label}</a>
     `).join("");
-    const headerCta = page === "home" ? "" : `<a class="nav-cta" href="contact.html">Book Appointment</a>`;
+    const headerCta = page === "home" ? "" : `<a class="nav-cta" href="${data.clinic.phoneUrl}">Call Now</a>`;
 
     return html`
       <header class="site-header">
@@ -47,28 +47,25 @@
           <nav class="footer-nav" aria-label="Footer navigation">
             ${data.nav.map((item) => `<a href="${item.url}">${item.label}</a>`).join("")}
           </nav>
-          <a class="footer-cta" href="contact.html">Book Appointment</a>
+          <a class="footer-cta" href="${data.clinic.phoneUrl}">Call Now</a>
         </div>
         <div class="footer-main">
           <section>
-            <h3>Meet Dr. ${data.doctor.name}</h3>
+            <h3>Our Guidance</h3>
             <p><strong>${data.doctor.qualification}</strong></p>
             <p>${data.doctor.bio}</p>
           </section>
           <section>
-            <h3>Get In Touch</h3>
+            <h3>Visit Dermis</h3>
             <p><strong>Address</strong><br>${data.clinic.address}<br>${data.clinic.location}</p>
-            <div class="footer-hours">
-              <strong>Clinic Hours</strong>
-              ${data.clinic.hours.map((item) => `<p><span>${item.days}</span><em>${item.time}</em></p>`).join("")}
-            </div>
-            <p><strong>Phone</strong><br><a href="${data.clinic.phoneUrl}">${data.clinic.phone}</a></p>
             <p><strong>Email</strong><br><a href="mailto:${data.clinic.email}">${data.clinic.email}</a></p>
           </section>
-          <section>
-            <h3>Help</h3>
-            <div class="footer-link-list">
-              ${data.footerLinks.map((item) => `<a href="${item.url}">${item.label}</a>`).join("")}
+          <section class="footer-booking">
+            <h3>Appointments</h3>
+            <p>To book a consultation or ask about a treatment, message us on WhatsApp. Our team will guide you with the next step.</p>
+            <div class="footer-actions">
+              <a href="${data.clinic.whatsappUrl}" target="_blank" rel="noopener">WhatsApp Now</a>
+              <a href="${data.clinic.mapUrl}" target="_blank" rel="noopener">Open Location</a>
             </div>
           </section>
         </div>
@@ -94,7 +91,7 @@
         ${whatsappIcon()}
       </button>
       <aside class="whatsapp-popup" aria-live="polite" aria-label="WhatsApp appointment message">
-        <button class="whatsapp-popup-close" type="button" aria-label="Close WhatsApp message">×</button>
+        <button class="whatsapp-popup-close" type="button" aria-label="Close WhatsApp message">&times;</button>
         <div class="whatsapp-popup-icon">${whatsappIcon()}</div>
         <div class="whatsapp-popup-copy">
           <strong>Need help booking?</strong>
@@ -132,11 +129,11 @@
           <div class="whatsapp-chat-title">
             <strong>Dermis Aesthetics</strong>
           </div>
-          <button class="whatsapp-popup-close" type="button" aria-label="Close WhatsApp chat">×</button>
+          <button class="whatsapp-popup-close" type="button" aria-label="Close WhatsApp chat">&times;</button>
         </div>
         <div class="whatsapp-chat-body">
           <div class="whatsapp-bubble incoming">Hi, welcome to Dermis Aesthetics.</div>
-          <div class="whatsapp-bubble incoming">Please type your concern or question below. We will help guide you.</div>
+          <div class="whatsapp-bubble incoming">Tell us what is bothering you. We will guide you with the next step.</div>
         </div>
         <div class="whatsapp-chat-compose">
           <label class="sr-only" for="whatsappConcern">Your concern or question</label>
@@ -215,11 +212,109 @@
     `).join("");
   }
 
+  function instagramShowcase() {
+    const featuredReel = {
+      title: "Check out our Instagram",
+      label: "Testimonial",
+      image: "assets/images/instagram-covers/dermis-featured-reel.jpg",
+      url: "https://www.instagram.com/reel/DRRWjlyEXaU/",
+      text: "Watch our latest Dermis Aesthetics reel and follow us for treatment videos, clinic updates and skin care guidance from our side."
+    };
+
+    const treatmentVideos = [
+      {
+        title: "Carbon laser treatment",
+        label: "Treatment Reel",
+        image: "assets/images/instagram-covers/carbon-laser-reel.jpg",
+        url: "https://www.instagram.com/reel/DRFX-Zzk82n/",
+        text: "See how carbon laser care is shown at Dermis Aesthetics."
+      },
+      {
+        title: "Microneedling treatment",
+        label: "Treatment Reel",
+        image: "assets/images/instagram-covers/microneedling-reel.jpg",
+        url: "https://www.instagram.com/reel/DVajMJ-Er5z/",
+        text: "A short microneedling treatment video from Dermis Aesthetics."
+
+      },
+      {
+        title: "PRP treatment",
+        label: "Treatment Reel",
+        image: "assets/images/instagram-covers/prp-reel.jpg",
+        url: "https://www.instagram.com/reel/DQYtwMPkcSd/",
+        text: "A short PRP treatment video from Dermis Aesthetics."
+
+      }
+    ];
+
+    return html`
+      <section class="section instagram-section">
+        <article class="instagram-featured-card" aria-label="Featured Dermis Instagram reel">
+          <a class="featured-reel-frame reel-cover-link" href="${escapeHtml(featuredReel.url)}" target="_blank" rel="noopener" aria-label="Open ${escapeHtml(featuredReel.title)} on Instagram">
+            <img src="${escapeHtml(featuredReel.image)}" alt="${escapeHtml(featuredReel.title)}" loading="lazy">
+            <span class="reel-tag" aria-hidden="true">Testimonial</span><span class="reel-play" aria-hidden="true"></span>
+          </a>
+          <div class="featured-reel-copy">
+            <span>${escapeHtml(featuredReel.label)}</span>
+            <h3>${escapeHtml(featuredReel.title)}</h3>
+            <p>${escapeHtml(featuredReel.text)}</p>
+            <a href="${escapeHtml(featuredReel.url)}" target="_blank" rel="noopener">Visit Instagram</a>
+          </div>
+        </article>
+        <div class="instagram-reels treatment-video-grid" aria-label="Dermis treatment video showcase">
+          ${treatmentVideos.map((reel) => html`
+            <article class="instagram-card treatment-video-card">
+              <a class="reel-frame reel-cover-link" href="${escapeHtml(reel.url)}" target="_blank" rel="noopener" aria-label="Open ${escapeHtml(reel.title)} on Instagram">
+                <img src="${escapeHtml(reel.image)}" alt="${escapeHtml(reel.title)}" loading="lazy">
+                <span class="reel-play" aria-hidden="true"></span>
+              </a>
+              <div class="reel-copy">
+                <span>${escapeHtml(reel.label)}</span>
+                <h3>${escapeHtml(reel.title)}</h3>
+                <p>${escapeHtml(reel.text)}</p>
+
+              </div>
+            </article>
+          `).join("")}
+        </div>
+      </section>
+    `;
+  }
+
+  function processSteps() {
+    const steps = [
+      ["01", "Consultation", "We begin by listening to your concern, history, goals and previous treatment experience."],
+      ["02", "Analysis", "Your skin, hair or scalp concern is assessed before recommending suitable care options."],
+      ["03", "Treatment", "A personalised plan is carried out with clear explanation, comfort and clinical guidance."],
+      ["04", "Follow-up", "Maintenance advice and review support help protect progress and long-term confidence."]
+    ];
+
+    return steps.map(([number, title, text]) => html`
+      <article class="process-step">
+        <span>${number}</span>
+        <h3>${title}</h3>
+        <p>${text}</p>
+      </article>
+    `).join("");
+  }
+
+  function servicePageLinks() {
+    const links = [
+      ["Acne Treatment", "acne-treatment-chemmad.html"],
+      ["Hair Fall Care", "hair-fall-treatment-chemmad.html"],
+      ["Dandruff Treatment", "dandruff-treatment-chemmad.html"],
+      ["Pigmentation Care", "pigmentation-treatment-chemmad.html"],
+      ["Hydrafacial", "hydrafacial-chemmad.html"]
+    ];
+
+    return links.map(([label, url]) => `<a href="${url}">${label}</a>`).join("");
+  }
+
   function whyChooseCards() {
     const reasons = [
       {
-        title: "Dermatology-led care",
-        text: "Consultations are guided by clinical understanding, careful assessment and treatment choices suited to your concern.",
+        title: "Consultation-led care",
+        text: "Every visit begins with careful listening, assessment and treatment choices suited to your concern.",
         icon: `<path d="M76 26c20 18 34 36 34 58a34 34 0 0 1-68 0c0-22 14-40 34-58Z"/><path d="M62 84h28"/><path d="M76 70v28"/>`
       },
       {
@@ -239,13 +334,24 @@
       }
     ];
 
-    return reasons.map((reason) => html`
-      <article class="why-card">
-        <svg viewBox="0 0 152 152" aria-hidden="true" focusable="false">${reason.icon}</svg>
-        <h2>${escapeHtml(reason.title)}</h2>
-        <p>${escapeHtml(reason.text)}</p>
-      </article>
-    `).join("");
+    return html`
+      <div class="why-panel">
+        <span>Dermis Care Standard</span>
+        <strong>We guide you clearly before choosing any treatment.</strong>
+        <p>Our aim is to make every patient feel informed, comfortable and confident before beginning care.</p>
+      </div>
+      <div class="why-feature-list">
+        ${reasons.map((reason) => html`
+          <article class="why-card">
+            <span class="why-icon"><svg viewBox="0 0 152 152" aria-hidden="true" focusable="false">${reason.icon}</svg></span>
+            <div>
+              <h2>${escapeHtml(reason.title)}</h2>
+              <p>${escapeHtml(reason.text)}</p>
+            </div>
+          </article>
+        `).join("")}
+      </div>
+    `;
   }
 
   const pages = {
@@ -255,54 +361,62 @@
           <video class="hero-video" src="${data.clinic.heroVideo}" poster="${data.clinic.heroPoster}" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
           <div class="hero-overlay"></div>
           <div class="hero-content">
-            <p class="eyebrow">Premium skin, hair and laser clinic in Chemmad, Malappuram</p>
-            <h1>Refined dermatology and aesthetic care for healthier, confident skin.</h1>
-            <p>Dermis Aesthetics provides personalised acne treatment, pigmentation care, dandruff treatment, scalp consultation and skin rejuvenation near Parappanangadi and Tirurangadi.</p>
-            <div class="actions">
-              ${button("Book Appointment", "contact.html")}
-              <a class="button secondary call-button" href="${data.clinic.phoneUrl}">Call Now</a>
-              ${button("View Treatments", "treatments.html", "secondary")}
+            <h1>Care for your skin, hair and confidence, guided with clarity.</h1>
+            <p>At Dermis Aesthetics, we first listen to your concern, understand your skin or hair condition, and then suggest care that feels clear, suitable and comfortable.</p>
+            <div class="actions hero-single-action">
+              <a class="button primary call-button" href="${data.clinic.phoneUrl}">Call Now</a>
             </div>
           </div>
         </section>
 
-        <section class="section intro-grid section-soft">
-          <div>
-            <p class="eyebrow">About Dermis Aesthetics</p>
-            <h2>Premium local care with a soft, medical-aesthetic approach.</h2>
+        <section class="section dermis-about-showcase" aria-label="Why choose Dermis Aesthetics">
+          <div class="dermis-showcase-copy">
+            <a class="showcase-mini-link" href="about.html">More About Us</a>
+            <h2>Dermis Aesthetics <em>treatments</em></h2>
           </div>
-          <p>Conveniently located for patients from Chemmad, Parappanangadi, Tirurangadi and nearby areas, Dermis Aesthetics focuses on clean diagnosis, personalised treatment plans and graceful aesthetic outcomes.</p>
+          <figure class="dermis-showcase-portrait">
+            <img src="assets/images/showcase/confident-glow-face.png" alt="Confident glowing face for Dermis Aesthetics skin care" loading="lazy">
+          </figure>
+          <div class="dermis-showcase-points">
+            <article>
+              <h3>Why Dermis Aesthetics</h3>
+              <p>Every skin and hair concern is different. We listen first, understand your concern, and suggest care that feels personal, clear and suitable for you.</p>
+            </article>
+            <article>
+              <h3>Modern aesthetic care</h3>
+              <p>Our clinic combines careful consultation, advanced treatment options and a calm patient experience for skin, hair, laser and aesthetic concerns.</p>
+            </article>
+            <a class="showcase-about-link" href="about.html">More About Us <span aria-hidden="true">→</span></a>
+          </div>
         </section>
 
-        <section class="section">
+        <section class="section home-treatments-section">
           <div class="section-heading">
             <p class="eyebrow">Treatments</p>
-            <h2>Skin, scalp and aesthetic services.</h2>
+            <h2>Treatments we provide at Dermis.</h2>
+            <p>From acne and pigmentation to hair fall, dandruff, laser hair reduction and skin rejuvenation, our treatments are planned only after checking your concern and suitability.</p>
           </div>
-          <div class="cards">${treatmentCards()}</div>
+          <div class="treatment-list home-treatment-list">${treatmentCards()}</div>
+          <div class="section-actions">
+            ${button("View Full Treatments", "treatments.html", "secondary")}
+          </div>
         </section>
 
-        <section class="section split expertise-section">
-          <div>
-            <p class="eyebrow">Doctor and clinic expertise</p>
-            <h2>Thoughtful care for visible skin concerns and long-term confidence.</h2>
-            <p>Every skin and scalp concern has its own triggers. At Dermis Aesthetics, treatments are recommended after understanding your history, skin type, lifestyle and treatment goals.</p>
-          </div>
-          ${checkList(data.expertise)}
-        </section>
+        ${instagramShowcase()}
+
 
         <section class="section">
           <div class="section-heading">
-            <p class="eyebrow">Google Reviews</p>
-            <h2>Patient experiences from Google.</h2>
+            <p class="eyebrow">Reviews</p>
+            <h2>What patients can expect from Dermis.</h2>
           </div>
           <div class="testimonial-grid">
             ${data.googleReviews.map((item) => html`
               <article class="testimonial-card">
-                <div class="stars" aria-label="${item.rating} out of 5 stars">${"★".repeat(item.rating)}</div>
-                <p>“${escapeHtml(item.quote)}”</p>
+                <div class="stars" aria-label="${item.rating} out of 5 stars">${"&#9733;".repeat(item.rating)}</div>
+                <p>${escapeHtml(item.quote)}</p>
                 <strong>${escapeHtml(item.name)}</strong>
-                <span>Google Review</span>
+                <span>Patient Experience</span>
               </article>
             `).join("")}
           </div>
@@ -312,34 +426,20 @@
           </div>
         </section>
 
-        <section class="section contact-grid contact-home">
+        <section class="section final-cta">
           <div>
-            <p class="eyebrow">Contact</p>
-            <h2>Book a consultation at Dermis Aesthetics.</h2>
-            <p><strong>Phone:</strong> ${data.clinic.phone}</p>
-            <p><strong>WhatsApp:</strong> ${data.clinic.whatsapp}</p>
-            <p><strong>Location:</strong> ${data.clinic.location}</p>
+            <p class="eyebrow">Book your consultation</p>
+            <h2>Ready to talk to us about your concern?</h2>
+            <p>Share your concern with us. We will guide you on consultation, treatment options and the next available appointment.</p>
             <div class="actions">
-              ${button("Book Appointment", "contact.html")}
-              <a class="button secondary call-button" href="${data.clinic.phoneUrl}">Call Now</a>
-              <a class="button outline whatsapp-button" href="${data.clinic.whatsappUrl}">${whatsappIcon()} Message on WhatsApp</a>
+              <a class="button primary whatsapp-button" href="${data.clinic.whatsappUrl}">${whatsappIcon()} WhatsApp Now</a>
+              ${button("View Treatments", "treatments.html", "secondary")}
             </div>
           </div>
-          <div class="map-wrap home-map" aria-label="Google Map location for ${data.clinic.name}">
-            <div class="map-fallback">
-              <strong>${data.clinic.name}</strong>
-              <span>${data.clinic.address}, ${data.clinic.location}</span>
-              <a class="button primary" href="${data.clinic.mapUrl}" target="_blank" rel="noopener">Open in Google Maps</a>
-            </div>
-            <iframe
-              title="${data.clinic.name} Google Map"
-              src="${data.clinic.mapEmbed}"
-              width="600"
-              height="450"
-              style="border:0;"
-              allowfullscreen
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="final-cta-panel">
+            <strong>Dermis Aesthetics</strong>
+            <span>${data.clinic.address}, ${data.clinic.location}</span>
+            <a class="final-cta-link" href="${data.clinic.mapUrl}" target="_blank" rel="noopener">Open Location</a>
           </div>
         </section>
       </main>
@@ -347,19 +447,13 @@
 
     about: () => html`
       <main>
-        <section class="page-hero about-hero">
-          <div>
-            <p class="eyebrow">ABOUT THE CLINIC</p>
-            <h1>Personalised care for skin, hair and laser wellness.</h1>
-            <p>Dermis Aesthetics is a modern clinic focused on thoughtful consultation, advanced treatments, and comfortable care for every skin and hair concern.</p>
-          </div>
-          <img class="about-hero-image" src="assets/images/clinic-hero.jpg" alt="Modern dermatology clinic treatment room">
-        </section>
+
         <section class="section split about-content">
           <div>
-            <h2>Care built around your concern</h2>
-            <p>We take time to understand your concern, explain suitable treatment options, and guide you with clear, personalised care.</p>
-            <p>With years of clinical experience in skin, hair and aesthetic care, Dermis Aesthetics combines careful assessment with advanced treatment options in a calm, professional environment.</p>
+            <h2>We start with your concern</h2>
+            <p>When you visit us, we first listen to what is bothering you. Then we explain what may be suitable, what to expect, and how the care plan can be followed.</p>
+            <p>Consultations are available for all types of skin concerns, from acne, pigmentation, rashes, itching, sensitivity and allergy-like reactions to dry skin, oily skin, uneven tone, texture changes and recurring scalp concerns.</p>
+            <p>With 7 years of clinic experience in skin, hair and aesthetic care, Dermis Aesthetics combines careful assessment with advanced treatment options in a calm, professional environment.</p>
           </div>
           <aside class="info-panel">
             <h3>Clinic Information</h3>
@@ -370,13 +464,13 @@
         <section class="section about-story">
           <div class="section-heading">
             <p class="eyebrow">Our Approach</p>
-            <h2>Thoughtful dermatology and aesthetic care.</h2>
+            <h2>Our way of caring for you.</h2>
           </div>
           <div class="about-story-copy">
-            <p>Dermis Aesthetics is a trusted skin and hair clinic in Chemmad, Malappuram, offering advanced dermatology and aesthetic treatments tailored to individual skin and hair concerns. With a focus on patient-centered care, the clinic combines medical expertise, modern technology, and personalized treatment plans to deliver safe, effective, and natural-looking results.</p>
+            <p>Dermis Aesthetics offers skin, hair, laser and aesthetic care tailored to individual concerns. With a focus on patient-centred care, the clinic combines careful consultation, modern technology and personalised treatment planning.</p>
             <p>At Dermis Aesthetics, every patient receives detailed attention from consultation to treatment. Our approach begins with understanding your skin type, concerns, lifestyle, and treatment goals before recommending the most suitable solutions. We believe that effective skin and hair care starts with the right diagnosis, honest guidance, and treatments designed specifically for you.</p>
-            <p>Our clinic provides treatment for a wide range of concerns including acne, pigmentation, acne scars, hair fall, dandruff, uneven skin tone, ageing skin, and other common dermatological conditions. Along with clinical skin care, Dermis Aesthetics also offers advanced aesthetic treatments aimed at enhancing skin health and confidence while maintaining natural results.</p>
-            <p>Known for professional care and a comfortable patient experience, Dermis Aesthetics has become a preferred choice for people seeking expert skin and hair treatment in Malappuram. Our commitment is simple: to provide quality dermatology and aesthetic care with transparency, expertise, and lasting results.</p>
+            <p>Our clinic provides consultation and support for a wide range of skin, hair and scalp concerns including acne, pigmentation, acne scars, rashes, itching, dry skin, oily skin, sensitivity, hair fall, dandruff, uneven skin tone, ageing skin and other common concerns. Along with clinical skin care, Dermis Aesthetics also offers aesthetic treatments aimed at enhancing skin health and confidence while maintaining natural results.</p>
+            <p>Known for professional care and a comfortable patient experience, Dermis Aesthetics has become a preferred choice for people seeking skin care in Chemmad and nearby areas. Our commitment is simple: to provide transparent guidance, suitable treatment options and a refined clinic experience.</p>
           </div>
         </section>
       </main>
@@ -386,11 +480,11 @@
       <main>
         ${pageHero(
           "",
-          "Advanced skin, hair, laser and minor procedure services.",
+          "Treatments available at Dermis Aesthetics.",
           ""
         )}
-        <section class="local-seo-note" aria-label="Clinic location">
-          <p>Located on Kozhilode Road, Chemmad, Dermis Aesthetics is a skin, hair and laser clinic for patients seeking professional aesthetic care in the area.</p>
+        <section class="clinic-note" aria-label="Clinic location">
+          <p>We provide skin, hair, laser, facial and minor procedure services after consultation and suitability assessment.</p>
         </section>
         <section class="section treatment-list">${treatmentCards()}</section>
       </main>
@@ -401,8 +495,8 @@
         <section class="why-hero">
           <div class="why-hero-inner">
             <p class="eyebrow">Why choose us</p>
-            <h1>Why Choose Dermis Aesthetics</h1>
-            <p>Thoughtful dermatology, personalised aesthetic care and a clinic experience designed around comfort, clarity and natural-looking confidence.</p>
+            <h1>Why patients choose Dermis Aesthetics</h1>
+            <p>We focus on clear communication, comfortable care and treatment planning that suits your concern.</p>
           </div>
           <div class="why-grid">
             ${whyChooseCards()}
@@ -411,11 +505,11 @@
         <section class="section why-detail">
           <div>
             <p class="eyebrow">Care approach</p>
-            <h2>Focused care from consultation to follow-up.</h2>
+            <h2>From consultation to follow-up, we stay clear with you.</h2>
           </div>
           <div>
-            <p>At Dermis Aesthetics, each treatment journey begins with listening. We take time to understand your concern, explain suitable options and guide you with care that feels calm, professional and realistic.</p>
-            <p>Whether you visit for acne, pigmentation, dandruff, hair fall, laser hair reduction or aesthetic skin treatments, the focus remains the same: safe planning, clear communication and results that support healthier-looking skin and hair over time.</p>
+            <p>At Dermis Aesthetics, we begin by listening. We understand your concern, explain suitable options and guide you with care that feels calm, professional and realistic.</p>
+            <p>Whether you visit for acne, pigmentation, dandruff, hair fall, laser hair reduction or aesthetic skin treatments, our focus is clear planning, simple communication and steady follow-up.</p>
             <div class="actions">
               ${button("View Treatments", "treatments.html")}
               ${button("Contact Clinic", "contact.html", "secondary")}
@@ -425,12 +519,102 @@
       </main>
     `,
 
+    blog: () => {
+      const posts = [
+        {
+          title: "Acne care starts with understanding your skin",
+          category: "Acne & Skin Clarity",
+          time: "3 min read",
+          image: "https://images.pexels.com/photos/3985329/pexels-photo-3985329.jpeg?auto=compress&cs=tinysrgb&w=1200",
+          text: "Breakouts, oily skin, acne marks and recurring pimples need a calm look at your skin type, routine and triggers before choosing care.",
+          url: "acne-treatment-chemmad.html"
+        },
+        {
+          title: "When dandruff keeps coming back",
+          category: "Scalp Comfort",
+          time: "2 min read",
+          image: "https://images.pexels.com/photos/3993466/pexels-photo-3993466.jpeg?auto=compress&cs=tinysrgb&w=1200",
+          text: "Flakes, itching and scalp irritation can have different causes. We explain what may be happening and how scalp care can be planned.",
+          url: "dandruff-treatment-chemmad.html"
+        },
+        {
+          title: "Pigmentation and dark spots: what to know",
+          category: "Tone & Pigmentation",
+          time: "3 min read",
+          image: "assets/images/treatments/carbon-laser.jpg",
+          text: "Dark spots, tanning, melasma and uneven tone are approached differently depending on your skin type and depth of pigmentation.",
+          url: "pigmentation-treatment-chemmad.html"
+        },
+        {
+          title: "Hair fall care needs proper assessment",
+          category: "Hair & Scalp",
+          time: "3 min read",
+          image: "assets/images/instagram-covers/prp-reel.jpg",
+          text: "Hair fall may be linked to scalp health, stress, lifestyle, nutrition or history. The first step is understanding the reason clearly.",
+          url: "hair-fall-treatment-chemmad.html"
+        },
+        {
+          title: "Hydra facial and skin glow treatments",
+          category: "Skin Glow",
+          time: "2 min read",
+          image: "assets/images/instagram-covers/dermis-featured-reel.jpg",
+          text: "Skin glow care should feel fresh and suitable for your skin. We explain what to expect before starting any facial treatment.",
+          url: "hydrafacial-chemmad.html"
+        },
+        {
+          title: "Laser hair reduction: simple patient guidance",
+          category: "Laser Care",
+          time: "3 min read",
+          image: "assets/images/instagram-covers/carbon-laser-reel.jpg",
+          text: "Laser hair reduction works best when sessions, skin type, hair growth and maintenance are explained properly from the beginning.",
+          url: "treatments.html"
+        },
+        {
+          title: "Microneedling for texture and acne marks",
+          category: "Skin Texture",
+          time: "2 min read",
+          image: "assets/images/treatments/microneedling.jpg",
+          text: "For selected skin texture concerns, microneedling may be discussed after checking suitability, sensitivity and aftercare needs.",
+          url: "treatments.html"
+        },
+        {
+          title: "PRP and GFC care for selected hair concerns",
+          category: "Regenerative Care",
+          time: "3 min read",
+          image: "assets/images/treatments/GFC.jpg",
+          text: "PRP and GFC are discussed only after understanding the concern, scalp condition and whether the treatment is suitable for the patient.",
+          url: "hair-fall-treatment-chemmad.html"
+        }
+      ];
+
+      return html`
+        <main class="blog-page">
+          <h1 class="sr-only">Dermis Blog</h1>
+          <section class="section blog-grid blog-grid-premium" aria-label="Dermis blog articles">
+            ${posts.map((post, index) => html`
+              <article class="blog-card ${index === 0 ? "featured-blog-card" : ""}">
+                <a class="blog-card-media" href="${escapeHtml(post.url)}" aria-label="Read ${escapeHtml(post.title)}">
+                  <img src="${escapeHtml(post.image)}" alt="${escapeHtml(post.title)}" loading="${index === 0 ? "eager" : "lazy"}" onerror="this.closest('.blog-card-media').classList.add('blog-image-missing'); this.remove();">
+                  <span class="blog-image-label">${escapeHtml(post.category)}</span>
+                </a>
+                <div class="blog-card-body">
+                  <div class="blog-meta"><span>${escapeHtml(post.category)}</span><small>${escapeHtml(post.time)}</small></div>
+                  <h2>${escapeHtml(post.title)}</h2>
+                  <p>${escapeHtml(post.text)}</p>
+                  <a class="blog-read-link" href="${escapeHtml(post.url)}">Read more</a>
+                </div>
+              </article>
+            `).join("")}
+          </section>
+        </main>
+      `;
+    },
     qa: () => html`
       <main>
         ${pageHero(
           "Questions and answers",
-          "Skin and hair treatment Q&A.",
-          "Find quick answers about our skin, hair, laser, and aesthetic treatments before your visit."
+          "Questions patients often ask us.",
+          "Here are simple answers to common questions about acne, dandruff, pigmentation, hair fall, laser and aesthetic treatments."
         )}
         <section class="section faq">
           ${data.faqs.map((faq, index) => html`
@@ -447,12 +631,12 @@
       <main>
         ${pageHero(
           "",
-          "Let’s Connect",
-          "Book appointments and consultations for skin, hair, and aesthetic treatments."
+          "Let's Connect",
+          "Call or message us to book a consultation, ask about a concern, or get location guidance."
         )}
         <section class="section contact-grid">
           <div class="contact-card">
-            <h2>Clinic Details</h2>
+            <h2>Contact Dermis Aesthetics</h2>
             <p><strong>${data.clinic.name}</strong></p>
             <p>${data.clinic.location}<br>${data.clinic.address}</p>
             <p><strong>Phone:</strong> ${data.clinic.phone}</p>
@@ -461,10 +645,10 @@
               ${clinicHours()}
             </div>
             <div class="contact-actions">
-              <a class="button primary whatsapp-button" href="${data.clinic.whatsappUrl}">${whatsappIcon()} Chat on WhatsApp</a>
-              <a class="button secondary call-button" href="${data.clinic.phoneUrl}">Call Now</a>
+              <a class="button primary call-button" href="${data.clinic.phoneUrl}">Call Now</a>
+              <a class="button secondary whatsapp-button" href="${data.clinic.whatsappUrl}">${whatsappIcon()} Chat on WhatsApp</a>
             </div>
-            <p><a href="${data.clinic.googleProfile}" target="_blank" rel="noopener">View Dermis Aesthetics on Google</a></p>
+            <p><a href="${data.clinic.googleProfile}" target="_blank" rel="noopener">Open our Google profile</a></p>
           </div>
       <div class="map-wrap" aria-label="Google Map location for ${data.clinic.name}">
         <div class="map-fallback">
@@ -491,10 +675,117 @@
         </section>
       </main>
     `
+    ,
+
+    service: () => {
+      const key = document.body.dataset.service;
+      const service = data.servicePages[key] || data.servicePages.acne;
+
+      return html`
+        <main>
+          ${pageHero(
+            service.eyebrow,
+            service.title,
+            service.intro
+          )}
+          <section class="section split service-detail">
+            <div>
+              <p class="eyebrow">Consultation-led care</p>
+              <h2>Planned after understanding your concern.</h2>
+              <p>${escapeHtml(service.focus)}</p>
+              <p>${escapeHtml(service.note)}</p>
+              <div class="actions">
+                <a class="button primary call-button" href="${data.clinic.phoneUrl}">Call Now</a>
+                <a class="button secondary whatsapp-button" href="${data.clinic.whatsappUrl}">${whatsappIcon()} WhatsApp Now</a>
+              </div>
+            </div>
+            <aside class="info-panel">
+              <h3>What may be discussed</h3>
+              ${checkList(service.treatments)}
+            </aside>
+          </section>
+          <section class="section service-links-section">
+            <div class="section-heading">
+              <p class="eyebrow">More concerns</p>
+              <h2>Explore related services.</h2>
+            </div>
+            <div class="service-page-links">${servicePageLinks()}</div>
+          </section>
+        </main>
+      `;
+    }
   };
 
   root.innerHTML = renderHeader() + (pages[page] || pages.home)() + renderFooter() + renderWhatsAppChatbox();
+  const revealTargets = document.querySelectorAll([
+    "main .page-hero h1",
+    "main .page-hero p",
+    "main section:not(.hero) .eyebrow",
+    "main section:not(.hero) h2",
+    "main section:not(.hero) p",
+    ".card",
+    ".key-treatment-card",
+    ".why-card",
+    ".process-step",
+    ".testimonial-card",
+    ".blog-card",
+    ".info-panel",
+    ".service-page-links a",
+    ".contact-card",
+    ".map-wrap",
+    ".final-cta-panel"
+  ].join(","));
 
+  if (revealTargets.length) {
+    document.body.classList.add("reveal-ready");
+    revealTargets.forEach((element, index) => {
+      element.classList.add("reveal-on-scroll");
+      element.style.setProperty("--reveal-delay", `${Math.min(index % 5, 4) * 70}ms`);
+    });
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          } else {
+            entry.target.classList.remove("is-visible");
+          }
+        });
+      }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
+
+      revealTargets.forEach((element) => revealObserver.observe(element));
+    } else {
+      revealTargets.forEach((element) => element.classList.add("is-visible"));
+    }
+  }
+
+
+
+
+  const showcaseImage = document.querySelector(".dermis-showcase-portrait img");
+  const showcaseSection = document.querySelector(".dermis-about-showcase");
+  if (showcaseImage && showcaseSection && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let ticking = false;
+    const updateShowcaseZoom = () => {
+      const rect = showcaseSection.getBoundingClientRect();
+      const viewport = window.innerHeight || document.documentElement.clientHeight;
+      const rawProgress = 1 - Math.abs((rect.top + rect.height / 2) - viewport / 2) / (viewport + rect.height / 2);
+      const progress = Math.max(0, Math.min(1, rawProgress));
+      const scale = 1.02 + progress * 0.105;
+      showcaseImage.style.setProperty("--showcase-zoom", scale.toFixed(3));
+      ticking = false;
+    };
+    const requestShowcaseZoom = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateShowcaseZoom);
+        ticking = true;
+      }
+    };
+    updateShowcaseZoom();
+    window.addEventListener("scroll", requestShowcaseZoom, { passive: true });
+    window.addEventListener("resize", requestShowcaseZoom);
+  }
   const menuToggle = document.querySelector(".menu-toggle");
   const headerRight = document.querySelector(".header-right");
   if (menuToggle && headerRight) {
@@ -506,11 +797,66 @@
 
   const heroVideo = document.querySelector(".hero-video");
   if (heroVideo) {
-    heroVideo.muted = true;
+    const clipStart = Number(heroVideo.dataset.clipStart || 0);
+    const clipEnd = Number(heroVideo.dataset.clipEnd || 0);
+    const hasClipRange = Number.isFinite(clipStart) && Number.isFinite(clipEnd) && clipEnd > clipStart;
+
+    const playHeroVideo = () => {
+      heroVideo.muted = true;
+      heroVideo.play().catch(() => {});
+    };
+
+    const jumpToClipStart = () => {
+      if (hasClipRange && Math.abs(heroVideo.currentTime - clipStart) > 0.25) {
+        heroVideo.currentTime = clipStart;
+      }
+    };
+
+    heroVideo.addEventListener("loadedmetadata", () => {
+      jumpToClipStart();
+      playHeroVideo();
+    });
+
+    heroVideo.addEventListener("timeupdate", () => {
+      if (hasClipRange && (heroVideo.currentTime >= clipEnd || heroVideo.currentTime < clipStart - 0.2)) {
+        heroVideo.currentTime = clipStart;
+        playHeroVideo();
+      }
+    });
+
+    heroVideo.addEventListener("ended", () => {
+      if (hasClipRange) heroVideo.currentTime = clipStart;
+      playHeroVideo();
+    });
+
     heroVideo.load();
-    heroVideo.play().catch(() => {});
+    playHeroVideo();
   }
 
+  const reelVideos = document.querySelectorAll(".reel-frame video");
+  if (reelVideos.length) {
+    const playReel = (video) => {
+      video.muted = true;
+      video.play().catch(() => {});
+    };
+
+    if ("IntersectionObserver" in window) {
+      const reelObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            playReel(video);
+          } else {
+            video.pause();
+          }
+        });
+      }, { threshold: 0.45 });
+
+      reelVideos.forEach((video) => reelObserver.observe(video));
+    } else {
+      reelVideos.forEach(playReel);
+    }
+  }
   const whatsappPopup = document.querySelector(".whatsapp-popup");
   const whatsappFloat = document.querySelector(".whatsapp-float");
   const whatsappPopupClose = document.querySelector(".whatsapp-popup-close");
@@ -550,3 +896,25 @@
     });
   }
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

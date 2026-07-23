@@ -5,9 +5,9 @@ window.DERMIS_SITE = {
     logo: "/logo.png?v=2",
     location: "Chemmad, Kozhikode, Kerala 676306",
     address: "Kozhilode Road, near Barat Petrol Pump",
-    phone: "+91 8113 860 971",
+    phone: "+91 8113860971",
     phoneUrl: "tel:+918113860971",
-    whatsapp: "+91 8113 860 971",
+    whatsapp: "+91 8113860971",
     whatsappUrl: "https://api.whatsapp.com/send?phone=918113860971&text=Hi%20Dermis%20Aesthetics%2C%20I%20would%20like%20to%20book%20an%20appointment.",
     email: "contact.dermisaesthetics@gmail.com",
     hours: [
@@ -16,10 +16,10 @@ window.DERMIS_SITE = {
     ],
     mapEmbed: "https://www.google.com/maps?q=Dermis%20Aesthetics%2C%20Kozhilode%20Road%2C%20near%20Barat%20Petrol%20Pump%2C%20Chemmad%2C%20Kozhikode%2C%20Kerala%20676306&output=embed",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Dermis%20Aesthetics%2C%20Kozhilode%20Road%2C%20near%20Barat%20Petrol%20Pump%2C%20Chemmad%2C%20Kozhikode%2C%20Kerala%20676306",
-    heroVideo: "assets/videos/hero-merged.mp4?v=3",
+    heroVideo: "assets/videos/hero-merged.mp4?v=5",
     heroPoster: "assets/images/clinic-hero.jpg",
-    googleProfile: "https://share.google/r5l3Vrz52F9jPRcXr",
-    areas: ["Chemmad", "Parappanangadi", "Tirurangadi"],
+    googleProfile: "https://share.google/ozeTuakBhKpFZtRlm",
+    areas: ["Chemmad", "Malappuram", "Kottakkal", "Kondotty", "Chelari", "Muniyoor", "Thalappara", "Padikkal", "Chettipadi", "Parappanangadi"],
     listings: [
       "Google Business Profile",
       "Justdial",
@@ -34,23 +34,26 @@ window.DERMIS_SITE = {
 
   doctor: {
     name: "Raoof Malayil",
-    qualification: "MBBS, MD Dermatology",
-    bio: "Dr. Raoof Malayil brings dermatology-focused clinical expertise to Dermis Aesthetics, guiding patients with thoughtful consultation and personalised care for skin, hair and aesthetic concerns."
+    qualification: "Clinic Lead",
+    bio: "Our clinic lead guides aesthetic skin and hair care with a patient-first approach, focusing on clear consultation, comfort and suitable treatment planning."
   },
 
   footerLinks: [
-    { label: "Acne Care Guide", url: "qa.html" },
-    { label: "Dandruff Treatment", url: "qa.html" },
+    { label: "Acne Treatment", url: "acne-treatment-chemmad.html" },
+    { label: "Hair Fall Care", url: "hair-fall-treatment-chemmad.html" },
+    { label: "Dandruff Treatment", url: "dandruff-treatment-chemmad.html" },
+    { label: "Pigmentation Care", url: "pigmentation-treatment-chemmad.html" },
+    { label: "Hydrafacial", url: "hydrafacial-chemmad.html" },
     { label: "Laser Hair Reduction", url: "treatments.html" },
     { label: "Location", url: "contact.html" },
-    { label: "Book Appointment", url: "contact.html" }
+    { label: "Call Now", url: "tel:+918113860971" }
   ],
 
   nav: [
     { id: "home", label: "Home", url: "index.html" },
     { id: "about", label: "About", url: "about.html" },
     { id: "treatments", label: "Treatments", url: "treatments.html" },
-    { id: "why", label: "Why Us", url: "why-choose-us.html" },
+    { id: "blog", label: "Blog", url: "blog.html" },
     { id: "qa", label: "Q&A", url: "qa.html" },
     { id: "contact", label: "Contact", url: "contact.html" }
   ],
@@ -60,94 +63,137 @@ window.DERMIS_SITE = {
       title: "Chemical Peeling",
       category: "Skin Renewal",
       image: "https://images.pexels.com/photos/3985332/pexels-photo-3985332.jpeg?auto=compress&cs=tinysrgb&w=900",
-      text: "Professional peeling treatments for dullness, uneven tone, acne marks, pigmentation and texture concerns."
+      text: "Peeling treatments are used for selected concerns such as dullness, uneven tone, acne marks, pigmentation and texture, after checking skin suitability."
     },
     {
       title: "PRP Therapy",
       category: "Hair & Regenerative Care",
       image: "https://unsplash.com/photos/xb-6wrS8wwI/download?force=true",
-      text: "Platelet-rich plasma therapy for selected hair and skin concerns after consultation and suitability assessment."
+      text: "PRP is discussed for selected hair and skin concerns after we understand your condition, history and suitability."
     },
     {
       title: "GFC Treatment",
       category: "Hair & Regenerative Care",
       image: "assets/images/treatments/GFC.jpg",
-      text: "Growth factor concentrate treatment for hair and scalp concerns, planned according to individual needs."
+      text: "GFC care is planned for suitable hair and scalp concerns after consultation and individual assessment."
     },
     {
       title: "Mesotherapy",
       category: "Skin & Hair Support",
       image: "https://images.pexels.com/photos/34220312/pexels-photo-34220312.jpeg?auto=compress&cs=tinysrgb&w=900",
-      text: "Targeted mesotherapy support for selected skin, scalp and aesthetic concerns under clinic guidance."
+      text: "Mesotherapy may be suggested for selected skin, scalp or aesthetic concerns when it is suitable for the patient."
     },
     {
       title: "Microneedling",
       category: "Skin Texture",
       image: "assets/images/treatments/microneedling.jpg",
-      text: "Microneedling for acne marks, texture, pores and skin rejuvenation with a structured treatment plan."
+      text: "Microneedling may help selected concerns such as acne marks, texture and open pores, with proper aftercare guidance."
     },
     {
       title: "Laser Hair Reduction",
       category: "Laser Treatments",
       image: "https://images.pexels.com/photos/36930858/pexels-photo-36930858.jpeg?auto=compress&cs=tinysrgb&w=900",
-      text: "Laser hair reduction for unwanted hair with professional device-based sessions and aftercare guidance."
+      text: "Laser hair reduction is planned for unwanted hair after checking skin type, hair growth pattern and session suitability."
     },
     {
       title: "Carbon Laser Peel",
       category: "Laser Treatments",
       image: "assets/images/treatments/carbon-laser.jpg",
-      text: "Carbon laser peel for oily skin, tan, dullness and visible pores, commonly chosen for skin brightening."
+      text: "Carbon laser peel is commonly chosen for oily skin, tan, dullness and visible pores after a skin check."
     },
     {
       title: "Medical Hydra Facial",
       category: "Facials & Glow",
       image: "https://images.pexels.com/photos/12556701/pexels-photo-12556701.jpeg?auto=compress&cs=tinysrgb&w=900",
-      text: "Medical-grade hydra facial for deep cleansing, hydration, glow and refreshed skin appearance."
+      text: "Medical hydra facial is offered for cleansing, hydration and a refreshed skin glow, based on your skin condition."
     },
     {
       title: "Vampire Facial",
       category: "Facials & Regeneration",
       image: "assets/images/treatments/vampire-facial.jpg",
-      text: "Regenerative facial treatment using patient-derived components for skin rejuvenation after assessment."
+      text: "Vampire facial is discussed for selected skin rejuvenation goals after consultation and suitability review."
     },
     {
       title: "IV Glutathione",
       category: "Wellness & Glow",
       image: "assets/images/treatments/IV-Glutathione.jpg",
-      text: "IV glutathione sessions offered with medical screening, counselling and clinic supervision."
+      text: "IV glutathione is offered only after screening, counselling and clinic supervision."
     },
     {
       title: "Earlobe Repair",
       category: "Minor Procedures",
       image: "assets/images/treatments/ear-lobe.jpg",
-      text: "Minor repair procedure for split, stretched or damaged earlobes with careful cosmetic closure."
+      text: "Earlobe repair is available for split, stretched or damaged earlobes with careful closure and aftercare advice."
     },
     {
       title: "Minor Cosmetic Surgery",
       category: "Minor Procedures",
       image: "https://images.pexels.com/photos/30809947/pexels-photo-30809947.jpeg?auto=compress&cs=tinysrgb&w=900",
-      text: "Selected minor cosmetic procedures performed in a clinic setting after consultation and consent."
+      text: "Selected minor cosmetic procedures are done only after consultation, explanation and consent."
     },
     {
       title: "Nail Surgery",
       category: "Minor Procedures",
       image: "https://images.pexels.com/photos/4677847/pexels-photo-4677847.jpeg?auto=compress&cs=tinysrgb&w=900",
-      text: "Minor nail procedures for suitable nail concerns, including painful or recurring nail problems."
+      text: "Nail procedures are available for suitable concerns such as painful or recurring nail problems, after evaluation."
     },
     {
       title: "Circumcision",
       category: "Minor Procedures",
       image: "assets/images/treatments/circumcision.jpg",
-      text: "Circumcision procedure available with consultation, clinical evaluation and post-procedure guidance."
+      text: "Circumcision is available after consultation, clinical evaluation and clear post-procedure guidance."
     }
   ],
 
-  expertise: [
+  careHighlights: [
     "Evidence-informed skin and hair treatment planning",
-    "Aesthetic dermatology with a natural, refined approach",
+    "Aesthetic care with a natural, refined approach",
     "Acne, pigmentation, dandruff and scalp-focused care",
     "Clear consultation, maintenance guidance and follow-up"
   ],
+
+  servicePages: {
+    acne: {
+      eyebrow: "Acne care",
+      title: "Acne treatment and pimple care.",
+      intro: "Dermis Aesthetics provides consultation-led acne care for pimples, recurring breakouts, oily skin, clogged pores, acne marks and acne scars.",
+      focus: "Each plan begins with understanding your skin type, breakout pattern, product use, lifestyle triggers and previous treatment history.",
+      treatments: ["Acne consultation", "Skin care guidance", "Chemical peeling", "Carbon laser peel", "Microneedling for selected acne marks", "Maintenance support"],
+      note: "Care is explained clearly, including what may help active breakouts, marks, texture and maintenance over time."
+    },
+    hairFall: {
+      eyebrow: "Hair and scalp care",
+      title: "Hair fall consultation and scalp care.",
+      intro: "Dermis Aesthetics offers consultation-led care for hair fall, thinning concerns, dandruff, oily scalp, itchy scalp and basic scalp concerns.",
+      focus: "The clinic reviews hair fall pattern, scalp condition, duration, routine, lifestyle factors and previous care before suggesting suitable options.",
+      treatments: ["Hair fall consultation", "Scalp assessment", "Dandruff care guidance", "PRP for suitable cases", "GFC for suitable cases", "Maintenance advice"],
+      note: "Guidance focuses on understanding the hair fall pattern first, then discussing scalp care, regenerative options and maintenance where suitable."
+    },
+    dandruff: {
+      eyebrow: "Dandruff care",
+      title: "Dandruff treatment and scalp consultation.",
+      intro: "Dermis Aesthetics provides scalp consultation for flakes, itching, oily scalp, dryness, redness, irritation and recurring dandruff concerns.",
+      focus: "Care is planned after understanding recurrence, scalp symptoms, hair care routine, product use and associated hair fall or irritation.",
+      treatments: ["Scalp consultation", "Dandruff care plan", "Itching and flaking guidance", "Hair routine correction", "Maintenance support", "Follow-up advice"],
+      note: "The goal is to calm recurring flakes and irritation while improving the routine that supports scalp comfort."
+    },
+    pigmentation: {
+      eyebrow: "Pigmentation care",
+      title: "Pigmentation, dark spots and uneven tone care.",
+      intro: "Dermis Aesthetics provides consultation-led pigmentation care for dark spots, tanning, melasma-like patches, post-acne marks and uneven skin tone.",
+      focus: "Treatment choices depend on your skin type, pigmentation pattern, sun exposure, skincare routine, sensitivity and expected downtime.",
+      treatments: ["Pigmentation consultation", "Brightening skin care guidance", "Chemical peeling", "Carbon laser peel", "Microneedling for selected marks", "Maintenance advice"],
+      note: "Care focuses on understanding the type of pigmentation, choosing suitable options and protecting progress with maintenance guidance."
+    },
+    hydrafacial: {
+      eyebrow: "Hydrafacial and glow care",
+      title: "Hydrafacial and skin glow treatments.",
+      intro: "Dermis Aesthetics offers medical hydra facial and skin rejuvenation options for dull skin, tanning, open pores, oily skin, uneven tone and glow concerns.",
+      focus: "The suitable facial or rejuvenation option is selected after checking skin type, sensitivity, active acne, dryness and the result you expect.",
+      treatments: ["Medical hydra facial", "Skin glow consultation", "Carbon laser peel", "Chemical peeling", "Microneedling for selected texture concerns", "Aftercare guidance"],
+      note: "The experience is planned around comfort, freshness and a healthier-looking glow without over-treating the skin."
+    }
+  },
 
   results: [
     {
@@ -167,41 +213,65 @@ window.DERMIS_SITE = {
   googleReviews: [
     {
       rating: 5,
-      quote: "Replace this with an actual Google review from your clinic profile.",
-      name: "Google reviewer"
+      quote: "Patients can expect careful listening, clear explanation and a calm clinic experience.",
+      name: "Consultation focused care"
     },
     {
       rating: 5,
-      quote: "Add another real patient review here exactly as it appears or in a short approved excerpt.",
-      name: "Google reviewer"
+      quote: "We plan care after understanding the concern, skin type, goals and expected outcome.",
+      name: "Personalised planning"
     },
     {
       rating: 5,
-      quote: "Use genuine Google reviews only. Avoid writing fake reviews for the website.",
-      name: "Google reviewer"
+      quote: "Patients can check our Google profile for clinic details, directions and feedback.",
+      name: "Verified Google profile"
     }
   ],
 
   faqs: [
     {
-      question: "Best acne treatment in Chemmad?",
-      answer: "If you are searching for a skin doctor in Chemmad or a Chemmad skin clinic for acne care, Dermis Aesthetics provides personalised treatment for active pimples, recurring breakouts, oily skin, clogged pores, acne marks and post-acne pigmentation. At Dermis Aesthetics, each acne consultation starts with an assessment of your skin type, acne severity, lifestyle triggers, product use and previous treatment history. Based on suitability, care may include medical acne management, chemical peeling, microneedling, carbon laser peel, skin care guidance and maintenance support. The goal is to control breakouts, reduce acne marks, improve skin texture and support healthier-looking skin over time. Dermis Aesthetics is a skin care clinic in Chemmad for patients looking for acne treatment, pigmentation care and dermatologist-guided skin care."
+      question: "What kind of clinic is Dermis Aesthetics?",
+      answer: "Dermis Aesthetics is a skin, hair, laser and aesthetic clinic focused on consultation-led care in a calm clinical setting. The clinic supports common concerns including acne, pigmentation, dandruff, hair fall, unwanted hair, dull skin, open pores and skin sensitivity concerns."
+    },
+    {
+      question: "Do you provide consultation for skin allergies and all types of skin concerns?",
+      answer: "Consultations are available for many types of skin concerns including rashes, itching, redness, sensitivity, allergy-like reactions, dry skin, oily skin, acne, pigmentation, tanning, uneven skin tone and texture changes. The clinic first understands the concern, skin type, duration, triggers and previous product or treatment history before suggesting suitable next steps."
+    },
+    {
+      question: "Do you provide acne and pimple treatment in Chemmad?",
+      answer: "Yes. Dermis Aesthetics provides acne and pimple care in Chemmad for active breakouts, oily skin, clogged pores, acne marks, acne scars and recurring pimples. Based on suitability, care may include skin care guidance, acne management, chemical peeling, microneedling, carbon laser peel and maintenance support to improve breakouts, marks and skin texture over time."
     },
     {
       question: "Do you provide dandruff treatment?",
-      answer: "Yes. Dermis Aesthetics provides dandruff and scalp treatment in Chemmad for flakes, itching, oily scalp, dryness, irritation and recurring dandruff. If you are searching for the best dandruff treatment near me or wondering which doctor to consult for dandruff, a skin doctor or dermatologist can assess whether the cause is dandruff, seborrheic dermatitis, scalp sensitivity, fungal overgrowth or another scalp condition. At our Chemmad skin clinic, treatment is planned after checking your scalp symptoms, frequency of recurrence, hair care routine and any associated hair fall or redness. Patients looking for scalp care near Parappanangadi, Tirurangadi and Chemmad can visit Dermis Aesthetics for dermatologist-guided dandruff care."
+      answer: "Yes. Dermis Aesthetics provides dandruff and scalp care in Chemmad for flakes, itching, oily scalp, dryness, irritation and recurring dandruff. The consultation looks at scalp symptoms, frequency of recurrence, hair care routine and any associated hair fall or redness before planning treatment and maintenance guidance according to the concern and suitability."
     },
     {
       question: "Do you treat pigmentation and dark spots?",
-      answer: "Yes. Dermis Aesthetics provides pigmentation treatment in Chemmad for dark spots, melasma, tanning, acne marks, uneven skin tone and dull-looking skin. If you are looking for a skin care clinic in Chemmad or skin care treatment near Parappanangadi, our team first assesses your skin type, pigmentation pattern, sun exposure, skincare routine and previous treatments. Based on suitability, treatment may include medical skincare, chemical peeling, carbon laser peel, microneedling, brightening protocols and maintenance guidance. The aim is to reduce visible pigmentation safely, improve skin clarity and support a more even, healthy-looking complexion over time."
+      answer: "Yes. Dermis Aesthetics provides pigmentation care in Chemmad for dark spots, melasma, tanning, acne marks, uneven skin tone and dull-looking skin. Based on suitability, treatment may include skin care guidance, chemical peeling, carbon laser peel, microneedling, brightening protocols and maintenance guidance to support clearer and more even-looking skin over time."
     },
     {
-      question: "Is Dermis Aesthetics near Tirurangadi?",
-      answer: "Dermis Aesthetics is located in Chemmad and is convenient for patients from Tirurangadi, Parappanangadi and nearby areas."
+      question: "Is laser hair reduction available at Dermis Aesthetics?",
+      answer: "Yes. Laser hair reduction is available at Dermis Aesthetics for unwanted hair concerns. Sessions are planned after consultation, skin and hair assessment, suitability review, pre-care explanation and aftercare guidance. Patients looking for laser hair reduction in Chemmad and Malappuram can contact the clinic through WhatsApp or phone."
     },
     {
-      question: "How do I book an appointment?",
-      answer: "You can call Dermis Aesthetics at +91 8113 860 971 or visit the clinic in Chemmad."
+      question: "Do you provide hydra facial and skin glow treatments?",
+      answer: "Yes. Dermis Aesthetics provides medical hydra facial, carbon laser peel, chemical peeling, microneedling and other skin rejuvenation options for dull skin, tanning, open pores, uneven tone and glow concerns. The suitable option depends on your skin type, sensitivity, concern and expected downtime."
+    },
+    {
+      question: "Do you provide PRP and GFC for hair fall concerns?",
+      answer: "Yes. PRP and GFC treatments are available for selected hair and scalp concerns after consultation and suitability assessment. The clinic reviews hair fall pattern, scalp condition, duration, lifestyle factors and previous treatment history before suggesting a plan."
+    },
+    {
+      question: "How much does treatment cost and how long does healing take?",
+      answer: "Treatment cost and healing time depend on the concern, severity, number of sessions, treatment type and skin response. Simple consultations, facials, peels, laser sessions and regenerative procedures all have different timelines. Dermis Aesthetics explains the approximate cost, expected sessions, aftercare and downtime during consultation before treatment is planned."
+    },
+    {
+      question: "Which areas are near Dermis Aesthetics?",
+      answer: "Dermis Aesthetics is located in Chemmad and welcomes patients from nearby communities including Malappuram, Kottakkal and surrounding areas."
+    },
+    {
+      question: "How do I book an appointment at Dermis Aesthetics?",
+      answer: "You can book through WhatsApp or call Dermis Aesthetics at +91 8113 860 971. Share your concern, preferred time and any previous treatment history so the clinic can guide you better."
     }
   ],
 
@@ -213,3 +283,9 @@ window.DERMIS_SITE = {
     "Skin rejuvenation and aesthetic care"
   ]
 };
+
+
+
+
+
+
