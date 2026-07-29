@@ -1,4 +1,4 @@
-window.DERMIS_SITE = {
+﻿window.DERMIS_SITE = {
   clinic: {
     name: "Dermis Aesthetics",
     tagline: "Skin | Hair | Laser",
@@ -54,7 +54,7 @@ window.DERMIS_SITE = {
     { id: "about", label: "About", url: "about.html" },
     { id: "treatments", label: "Treatments", url: "treatments.html" },
     { id: "blog", label: "Blog", url: "blog.html" },
-    { id: "qa", label: "Q&A", url: "qa.html" },
+    { id: "qa", label: "F&Q", url: "qa.html" },
     { id: "contact", label: "Contact", url: "contact.html" }
   ],
 
@@ -272,6 +272,46 @@ window.DERMIS_SITE = {
     {
       question: "How do I book an appointment at Dermis Aesthetics?",
       answer: "You can book through WhatsApp or call Dermis Aesthetics at +91 8113 860 971. Share your concern, preferred time and any previous treatment history so the clinic can guide you better."
+    },
+    {
+      question: "Which clinic can I visit for pimples and acne marks near Chemmad?",
+      answer: "Dermis Aesthetics supports patients with pimples, oily skin, acne marks, clogged pores and recurring breakouts. The clinic first checks your skin type, acne pattern, marks and previous product use, then explains suitable care such as skin care guidance, peeling, carbon laser peel or microneedling where appropriate."
+    },
+    {
+      question: "Why does dandruff keep coming back even after using shampoo?",
+      answer: "Recurring dandruff can happen because of oily scalp, dryness, irritation, product buildup, routine issues or scalp sensitivity. At Dermis Aesthetics, scalp care begins with understanding flakes, itching, redness, hair fall and recurrence before suggesting a suitable dandruff care plan and maintenance guidance."
+    },
+    {
+      question: "How long does pigmentation treatment take?",
+      answer: "Pigmentation treatment time depends on the type of pigmentation, depth of dark spots, tanning, melasma-like patches, acne marks, sun exposure and skin sensitivity. Some people notice gradual improvement in a few sessions, while deeper pigmentation may need longer care with maintenance and sun protection. Dermis Aesthetics explains the expected timeline after checking your skin."
+    },
+    {
+      question: "Is laser hair reduction available for women and men?",
+      answer: "Yes. Laser hair reduction can be planned for suitable women and men after checking skin type, hair thickness, treatment area and medical history. Sessions are usually done in intervals, and the clinic explains pre-care, aftercare, expected sessions and maintenance before starting."
+    },
+    {
+      question: "How many sessions are needed for laser hair reduction?",
+      answer: "The number of laser hair reduction sessions varies based on hair growth, area, skin type, hormones and treatment response. Most people need multiple sessions because hair grows in cycles. Dermis Aesthetics explains the expected session plan during consultation."
+    },
+    {
+      question: "Is hydra facial good for dull skin and glow concerns?",
+      answer: "Hydra facial may be suitable for dull skin, tanning, dryness, open pores, oily skin and glow concerns depending on skin condition. At Dermis Aesthetics, the skin is checked first so the facial or skin rejuvenation option feels comfortable and suitable."
+    },
+    {
+      question: "What is the healing time after microneedling?",
+      answer: "Microneedling healing time can vary based on skin sensitivity, treatment depth and concern. Mild redness or sensitivity may settle in a few days for many people, but deeper texture or acne scar work may need more downtime and careful aftercare. The clinic explains healing, aftercare and what to avoid before treatment."
+    },
+    {
+      question: "Can PRP or GFC help with hair fall concerns?",
+      answer: "PRP and GFC may be considered for selected hair fall and scalp concerns after consultation. The clinic checks hair fall pattern, scalp health, duration, lifestyle factors and previous treatment history before explaining whether regenerative hair care options may be suitable."
+    },
+    {
+      question: "Is Dermis Aesthetics easy to reach from nearby towns?",
+      answer: "Yes. Dermis Aesthetics is located in Chemmad and is easy to reach for patients from nearby towns such as Malappuram, Kottakkal, Tirurangadi, Parappanangadi and Chelar. You can contact the clinic by WhatsApp or phone before visiting for skin, hair, laser or aesthetic concerns."
+    },
+    {
+      question: "What should I search for if I need help with skin or hair concerns near me?",
+      answer: "People often search for acne treatment, dandruff treatment, pigmentation care, hydra facial, laser hair reduction, PRP, GFC, microneedling, skin care clinic near me or skin and hair clinic in Chemmad. Dermis Aesthetics provides consultation-led care for these concerns with clear guidance before treatment."
     }
   ],
 
@@ -283,6 +323,9 @@ window.DERMIS_SITE = {
     "Skin rejuvenation and aesthetic care"
   ]
 };
+
+
+
 
 
 

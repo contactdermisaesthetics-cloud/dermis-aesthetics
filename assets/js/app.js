@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   const data = window.DERMIS_SITE;
   const page = document.body.dataset.page || "home";
   const root = document.getElementById("site-root");
@@ -42,13 +42,6 @@
   function renderFooter() {
     return html`
       <footer class="site-footer">
-        <div class="footer-top">
-          <img src="${data.clinic.logo}" alt="${data.clinic.name} Logo" class="footer-logo">
-          <nav class="footer-nav" aria-label="Footer navigation">
-            ${data.nav.map((item) => `<a href="${item.url}">${item.label}</a>`).join("")}
-          </nav>
-          <a class="footer-cta" href="${data.clinic.phoneUrl}">Call Now</a>
-        </div>
         <div class="footer-main">
           <section>
             <h3>Our Guidance</h3>
@@ -281,6 +274,64 @@
     `;
   }
 
+  function homeFindUsSection() {
+    const hours = data.clinic.hours.map((item) => html`
+      <p><strong>${escapeHtml(item.days)}</strong><span>${escapeHtml(item.time)}</span></p>
+    `).join("");
+
+    return html`
+      <section class="section home-find-section" aria-label="Find Dermis Aesthetics">
+        <div class="home-find-info">
+          <span class="eyebrow">Find Us</span>
+          <h2>Visit Dermis Aesthetics</h2>
+          <p class="home-find-intro">Reach us for skin, hair, laser and aesthetic care. You can call, message on WhatsApp, or send your concern before visiting.</p>
+          <div class="home-find-list" aria-label="Clinic contact details">
+            <a href="${escapeHtml(data.clinic.mapUrl)}" target="_blank" rel="noopener">
+              <span>01</span>
+              <p>${escapeHtml(data.clinic.address)}<br>${escapeHtml(data.clinic.location)}</p>
+            </a>
+            <a href="${escapeHtml(data.clinic.phoneUrl)}">
+              <span>02</span>
+              <p>${escapeHtml(data.clinic.phone)}</p>
+            </a>
+            <a href="mailto:${escapeHtml(data.clinic.email)}">
+              <span>03</span>
+              <p>${escapeHtml(data.clinic.email)}</p>
+            </a>
+            <div>
+              <span>04</span>
+              <div class="home-find-hours">${hours}</div>
+            </div>
+          </div>
+          <div class="home-find-map">
+            <iframe src="${escapeHtml(data.clinic.mapEmbed)}" title="Dermis Aesthetics location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <form class="home-contact-form formspree-form" action="https://formspree.io/f/xzdnkebb" method="POST" aria-label="Send enquiry to Dermis Aesthetics">
+          <input type="hidden" name="_subject" value="New Dermis Aesthetics website enquiry">
+          <span class="eyebrow">Contact Dermis</span>
+          <h2>Tell us your concern</h2>
+          <label>
+            <span>Your Name</span>
+            <input type="text" name="name" placeholder="Your Name" autocomplete="name">
+          </label>
+          <label>
+            <span>Your Phone</span>
+            <input type="tel" name="phone" placeholder="Your Phone" autocomplete="tel">
+          </label>
+          <label>
+            <span>Concern</span>
+            <input type="text" name="subject" placeholder="Acne, hair fall, pigmentation...">
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="5" placeholder="Tell us briefly what you need help with"></textarea>
+          </label>
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+    `;
+  }
   function processSteps() {
     const steps = [
       ["01", "Consultation", "We begin by listening to your concern, history, goals and previous treatment experience."],
@@ -386,7 +437,7 @@
               <h3>Modern aesthetic care</h3>
               <p>Our clinic combines careful consultation, advanced treatment options and a calm patient experience for skin, hair, laser and aesthetic concerns.</p>
             </article>
-            <a class="showcase-about-link" href="about.html">More About Us <span aria-hidden="true">→</span></a>
+            <a class="showcase-about-link" href="about.html">More About Us <span aria-hidden="true">&rarr;</span></a>
           </div>
         </section>
 
@@ -405,44 +456,8 @@
         ${instagramShowcase()}
 
 
-        <section class="section">
-          <div class="section-heading">
-            <p class="eyebrow">Reviews</p>
-            <h2>What patients can expect from Dermis.</h2>
-          </div>
-          <div class="testimonial-grid">
-            ${data.googleReviews.map((item) => html`
-              <article class="testimonial-card">
-                <div class="stars" aria-label="${item.rating} out of 5 stars">${"&#9733;".repeat(item.rating)}</div>
-                <p>${escapeHtml(item.quote)}</p>
-                <strong>${escapeHtml(item.name)}</strong>
-                <span>Patient Experience</span>
-              </article>
-            `).join("")}
-          </div>
-          <div class="review-actions">
-            <a class="button primary" href="${data.clinic.googleProfile}" target="_blank" rel="noopener">View Google Reviews</a>
-            <a class="button secondary" href="${data.clinic.googleProfile}" target="_blank" rel="noopener">Review Us on Google</a>
-          </div>
-        </section>
-
-        <section class="section final-cta">
-          <div>
-            <p class="eyebrow">Book your consultation</p>
-            <h2>Ready to talk to us about your concern?</h2>
-            <p>Share your concern with us. We will guide you on consultation, treatment options and the next available appointment.</p>
-            <div class="actions">
-              <a class="button primary whatsapp-button" href="${data.clinic.whatsappUrl}">${whatsappIcon()} WhatsApp Now</a>
-              ${button("View Treatments", "treatments.html", "secondary")}
-            </div>
-          </div>
-          <div class="final-cta-panel">
-            <strong>Dermis Aesthetics</strong>
-            <span>${data.clinic.address}, ${data.clinic.location}</span>
-            <a class="final-cta-link" href="${data.clinic.mapUrl}" target="_blank" rel="noopener">Open Location</a>
-          </div>
-        </section>
-      </main>
+                ${homeFindUsSection()}
+</main>
     `,
 
     about: () => html`
@@ -611,11 +626,6 @@
     },
     qa: () => html`
       <main>
-        ${pageHero(
-          "Questions and answers",
-          "Questions patients often ask us.",
-          "Here are simple answers to common questions about acne, dandruff, pigmentation, hair fall, laser and aesthetic treatments."
-        )}
         <section class="section faq">
           ${data.faqs.map((faq, index) => html`
             <details ${index === 0 ? "open" : ""}>
@@ -733,7 +743,9 @@
     ".service-page-links a",
     ".contact-card",
     ".map-wrap",
-    ".final-cta-panel"
+    ".final-cta-panel",
+    ".home-find-section",
+    ".home-contact-form"
   ].join(","));
 
   if (revealTargets.length) {
@@ -759,6 +771,20 @@
       revealTargets.forEach((element) => element.classList.add("is-visible"));
     }
   }
+  const popTargets = document.querySelectorAll(".dermis-showcase-portrait");
+  if (popTargets.length) {
+    popTargets.forEach((element) => element.classList.add("pop-on-scroll"));
+    if ("IntersectionObserver" in window) {
+      const popObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle("is-visible", entry.isIntersecting);
+        });
+      }, { threshold: 0.28, rootMargin: "0px 0px -6% 0px" });
+      popTargets.forEach((element) => popObserver.observe(element));
+    } else {
+      popTargets.forEach((element) => element.classList.add("is-visible"));
+    }
+  }
 
 
 
@@ -772,7 +798,7 @@
       const viewport = window.innerHeight || document.documentElement.clientHeight;
       const rawProgress = 1 - Math.abs((rect.top + rect.height / 2) - viewport / 2) / (viewport + rect.height / 2);
       const progress = Math.max(0, Math.min(1, rawProgress));
-      const scale = 1.02 + progress * 0.105;
+      const scale = 1.005 + progress * 0.035;
       showcaseImage.style.setProperty("--showcase-zoom", scale.toFixed(3));
       ticking = false;
     };
@@ -889,6 +915,65 @@
     event.preventDefault();
     window.open(targetUrl, "_blank", "noopener");
   });
+  const formspreeForms = document.querySelectorAll(".formspree-form");
+  formspreeForms.forEach((form) => {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const button = form.querySelector("button[type='submit']");
+      const status = form.querySelector(".form-status");
+      const originalText = button?.textContent || "Send Message";
+      if (button) {
+        button.disabled = true;
+        button.textContent = "Sending...";
+      }
+      if (status) {
+        status.textContent = "";
+        status.className = "form-status";
+      }
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" }
+        });
+        if (!response.ok) throw new Error("Form submission failed");
+        form.reset();
+        if (status) {
+          status.textContent = "Thank you. Your enquiry has been sent to Dermis Aesthetics.";
+          status.classList.add("is-success");
+        }
+      } catch (error) {
+        if (status) {
+          status.textContent = "Sorry, the message could not be sent. Please try WhatsApp or call us.";
+          status.classList.add("is-error");
+        }
+      } finally {
+        if (button) {
+          button.disabled = false;
+          button.textContent = originalText;
+        }
+      }
+    });
+  });
+  const contactWhatsappForms = document.querySelectorAll(".contact-whatsapp-form");
+  contactWhatsappForms.forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      const name = String(formData.get("name") || "").trim();
+      const phone = String(formData.get("phone") || "").trim();
+      const subject = String(formData.get("subject") || "").trim();
+      const message = String(formData.get("message") || "").trim();
+      const lines = [
+        "Hi Dermis Aesthetics, I would like to enquire about a consultation.",
+        name ? `Name: ${name}` : "",
+        phone ? `Phone: ${phone}` : "",
+        subject ? `Concern: ${subject}` : "",
+        message ? `Message: ${message}` : ""
+      ].filter(Boolean);
+      window.open(whatsappBaseUrl + encodeURIComponent(lines.join("\n")), "_blank", "noopener");
+    });
+  });
   if (whatsappPopup && whatsappPopupClose) {
     whatsappPopupClose.addEventListener("click", () => {
       whatsappPopup.classList.remove("is-visible");
@@ -896,6 +981,24 @@
     });
   }
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
