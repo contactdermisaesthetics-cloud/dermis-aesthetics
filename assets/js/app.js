@@ -412,8 +412,8 @@
           <video class="hero-video" src="${data.clinic.heroVideo}" poster="${data.clinic.heroPoster}" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
           <div class="hero-overlay"></div>
           <div class="hero-content">
-            <h1>Care for your skin, hair and confidence, guided with clarity.</h1>
-            <p>At Dermis Aesthetics, we first listen to your concern, understand your skin or hair condition, and then suggest care that feels clear, suitable and comfortable.</p>
+            <h1>Healthy skin starts with clear care.</h1>
+            <p>Thoughtful skin, hair and aesthetic care planned around your concern.</p>
             <div class="actions hero-single-action">
               <a class="button primary call-button" href="${data.clinic.phoneUrl}">Call Now</a>
             </div>
@@ -981,6 +981,7 @@
     });
   }
 })();
+
 
 
 

@@ -6513,3 +6513,85 @@ body[data-page="home"] .hero-full-cover .hero-content {
   opacity: 0.72;
   transform: none !important;
 }
+
+/* Homepage hero zoom-out refinement */
+@media (min-width: 901px) {
+  body[data-page="home"] .hero-full-cover {
+    min-height: 100svh !important;
+    height: 100svh !important;
+    padding: clamp(132px, 12vh, 162px) clamp(46px, 5.2vw, 92px) clamp(58px, 8vh, 96px) !important;
+  }
+
+  body[data-page="home"] .hero-full-cover .hero-content {
+    max-width: min(730px, 54vw) !important;
+    padding: 0 !important;
+    gap: 18px !important;
+    justify-content: center !important;
+  }
+
+  body[data-page="home"] .hero-full-cover h1 {
+    max-width: 760px !important;
+    margin-top: 0 !important;
+    font-size: clamp(46px, 5.25vw, 82px) !important;
+    line-height: 1 !important;
+    letter-spacing: -0.018em !important;
+  }
+
+  body[data-page="home"] .hero-full-cover p {
+    max-width: 660px !important;
+    margin-top: 12px !important;
+    font-size: clamp(16px, 1.22vw, 20px) !important;
+    line-height: 1.62 !important;
+  }
+
+  body[data-page="home"] .hero-single-action {
+    margin-top: 20px !important;
+  }
+
+  body[data-page="home"] .hero-video {
+    object-position: center center !important;
+  }
+}
+
+@media (max-width: 760px) {
+  body[data-page="home"] .hero-full-cover h1 {
+    max-width: 13ch !important;
+    font-size: clamp(38px, 10.8vw, 52px) !important;
+    line-height: 1 !important;
+  }
+
+  body[data-page="home"] .hero-full-cover p {
+    max-width: 92vw !important;
+    font-size: 16px !important;
+    line-height: 1.62 !important;
+  }
+}
+
+/* Homepage hero content position refinement */
+@media (min-width: 901px) {
+  body[data-page="home"] .hero-full-cover .hero-content {
+    align-self: center !important;
+    justify-content: center !important;
+    transform: translateY(28px) !important;
+    margin-left: clamp(8px, 1.2vw, 22px) !important;
+  }
+
+  body[data-page="home"] .hero-full-cover h1 {
+    max-width: 700px !important;
+  }
+
+  body[data-page="home"] .hero-full-cover p {
+    margin-top: 18px !important;
+  }
+
+  body[data-page="home"] .hero-single-action {
+    margin-top: 28px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  body[data-page="home"] .hero-full-cover .hero-content {
+    justify-content: center !important;
+    transform: translateY(10px) !important;
+  }
+}
