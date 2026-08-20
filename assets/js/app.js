@@ -18,7 +18,7 @@
     const navItems = data.nav.map((item) => html`
       <a href="${item.url}" class="${item.id === page ? "active" : ""}">${item.label}</a>
     `).join("");
-    const headerCta = page === "home" ? "" : `<a class="nav-cta" href="${data.clinic.phoneUrl}">Call Now</a>`;
+    const headerCta = "";
 
     return html`
       <header class="site-header">
@@ -66,7 +66,7 @@
             <a href="about.html">About</a>
             <a href="treatments.html">Treatments</a>
             <a href="blog.html">Blog</a>
-            <a href="qa.html">F&Q</a>
+            <a href="qa.html">FAQ</a>
             <a href="contact.html">Contact</a>
           </section>
           <section>
@@ -217,6 +217,25 @@
     `;
   }
 
+  function treatmentFacts(treatment) {
+    const common = {
+      "Chemical Peeling": ["For: dullness, acne marks, uneven tone", "Sessions: planned after skin check", "Downtime: mild redness or peeling may occur", "Aftercare: sunscreen and gentle skin care"],
+      "PRP Therapy": ["For: selected hair fall and scalp concerns", "Procedure: blood sample is processed and used carefully", "Sessions: usually planned as a course", "Aftercare: avoid harsh scalp products briefly"],
+      "GFC Treatment": ["For: selected hair and scalp concerns", "Procedure: growth-factor based care after review", "Sessions: advised according to hair fall pattern", "Performed with clinic supervision"],
+      "Mesotherapy": ["For: selected skin or scalp support", "Procedure: targeted micro-injections when suitable", "Downtime: temporary redness can happen", "Aftercare: follow clinic instructions"],
+      "Microneedling": ["For: acne marks, texture and open pores", "Procedure: controlled micro-channels on skin", "Downtime: redness for a short period may occur", "Aftercare: avoid actives and sun exposure initially"],
+      "Laser Hair Reduction": ["For: unwanted hair on suitable skin and hair types", "Sessions: multiple sittings are usually needed", "Downtime: minimal for most patients", "Aftercare: sun protection and interval follow-up"],
+      "Carbon Laser Peel": ["For: oily skin, dullness, tan and visible pores", "Procedure: carbon layer with laser pass", "Downtime: usually minimal", "Aftercare: sunscreen and gentle cleanser"],
+      "Medical Hydra Facial": ["For: cleansing, hydration and skin freshness", "Procedure: exfoliation, extraction and hydration steps", "Downtime: usually none", "Aftercare: maintain hydration and sunscreen"],
+      "Vampire Facial": ["For: selected rejuvenation and texture goals", "Procedure: regenerative facial planned after review", "Downtime: redness may occur briefly", "Aftercare: strict post-care guidance"],
+      "IV Glutathione": ["For: wellness and glow concerns after screening", "Procedure: IV support under clinic supervision", "Sessions: decided only after counselling", "Safety: medical history is checked first"],
+      "Earlobe Repair": ["For: split, stretched or damaged earlobes", "Procedure: minor closure after evaluation", "Downtime: healing care is explained", "Aftercare: dressing and follow-up guidance"],
+      "Minor Cosmetic Surgery": ["For: selected minor aesthetic concerns", "Procedure: only after consent and explanation", "Downtime: depends on procedure type", "Aftercare: written care guidance is provided"],
+      "Nail Surgery": ["For: painful or recurring nail concerns", "Procedure: planned after examination", "Downtime: depends on nail condition", "Aftercare: wound care and review instructions"],
+      "Circumcision": ["Procedure: after consultation and evaluation", "Timing: planned with clear instructions", "Downtime: healing period is explained in clinic", "Aftercare: hygiene and follow-up guidance"]
+    };
+    return common[treatment.title] || ["Planned after consultation", "Sessions and downtime vary", "Aftercare is explained before treatment", "Performed with clinic supervision"];
+  }
   function treatmentCards(limit) {
     return data.treatments.slice(0, limit || data.treatments.length).map((treatment) => html`
       <article class="card">
@@ -227,6 +246,9 @@
           <span class="card-kicker">${escapeHtml(treatment.category || "Treatment")}</span>
           <h3>${escapeHtml(treatment.title)}</h3>
           <p>${escapeHtml(treatment.text)}</p>
+          <ul class="treatment-facts">
+            ${treatmentFacts(treatment).map((fact) => html`<li>${escapeHtml(fact)}</li>`).join("")}
+          </ul>
         </div>
       </article>
     `).join("");
@@ -272,12 +294,12 @@
         <article class="instagram-featured-card" aria-label="Featured Dermis Instagram reel">
           <a class="featured-reel-frame reel-cover-link" href="${escapeHtml(featuredReel.url)}" target="_blank" rel="noopener" aria-label="Open ${escapeHtml(featuredReel.title)} on Instagram">
             <img src="${escapeHtml(featuredReel.image)}" alt="${escapeHtml(featuredReel.title)}" loading="lazy">
-            <span class="reel-tag" aria-hidden="true">Testimonial</span><span class="reel-play" aria-hidden="true"></span>
+            <span class="reel-play" aria-hidden="true"></span>
           </a>
           <div class="featured-reel-copy">
             <span>${escapeHtml(featuredReel.label)}</span>
             <h3>${escapeHtml(featuredReel.title)}</h3>
-            <p>${escapeHtml(featuredReel.text)}</p>
+            <p class="instagram-featured-description">${escapeHtml(featuredReel.text)}</p>
             <a href="${escapeHtml(featuredReel.url)}" target="_blank" rel="noopener">Visit Instagram</a>
           </div>
         </article>
@@ -301,6 +323,59 @@
     `;
   }
 
+  function testimonialMarquee() {
+    const testimonials = [
+      {
+        quote: "I came in with dandruff and scalp irritation that kept returning. The team explained the possible causes clearly and guided me with a simple care plan.",
+        name: "Dermis Patient",
+        detail: "Scalp care visit",
+        initials: "DP"
+      },
+      {
+        quote: "The consultation felt calm and personal. My acne concern was heard properly before treatment options were explained.",
+        name: "Dermis Patient",
+        detail: "Acne care visit",
+        initials: "AC"
+      },
+      {
+        quote: "I liked that the process was explained before starting. It helped me understand what to expect and how to care for my skin after the session.",
+        name: "Dermis Patient",
+        detail: "Skin treatment visit",
+        initials: "ST"
+      },
+      {
+        quote: "The clinic experience felt comfortable and professional. The guidance was clear without pressure.",
+        name: "Dermis Patient",
+        detail: "Aesthetic care visit",
+        initials: "DA"
+      }
+    ];
+    const cards = testimonials.map((item) => html`
+      <article class="testimonial-marquee-card">
+        <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+        <p>${escapeHtml(item.quote)}</p>
+        <div class="testimonial-person">
+          <span>${escapeHtml(item.initials)}</span>
+          <div>
+            <strong>${escapeHtml(item.name)}</strong>
+            <small>${escapeHtml(item.detail)}</small>
+          </div>
+        </div>
+      </article>
+    `).join("");
+
+    return html`
+      <section class="section testimonial-marquee-section" aria-label="Patient experiences at Dermis Aesthetics">
+        <div class="testimonial-marquee-heading">
+          <span class="eyebrow">Patient Experiences</span>
+          <h2>What patients say after visiting Dermis.</h2>
+        </div>
+        <div class="testimonial-marquee-track" aria-hidden="false">
+          <div class="testimonial-marquee-row">${cards}${cards}</div>
+        </div>
+      </section>
+    `;
+  }
   function homeFindUsSection() {
     const hours = data.clinic.hours.map((item) => html`
       <p><strong>${escapeHtml(item.days)}</strong><span>${escapeHtml(item.time)}</span></p>
@@ -311,22 +386,18 @@
         <div class="home-find-info">
           <span class="eyebrow">Find Us</span>
           <h2>Visit Dermis Aesthetics</h2>
-          <p class="home-find-intro">Reach us for skin, hair, laser and aesthetic care. You can call, message on WhatsApp, or send your concern before visiting.</p>
+
           <div class="home-find-list" aria-label="Clinic contact details">
             <a href="${escapeHtml(data.clinic.mapUrl)}" target="_blank" rel="noopener">
               <span>01</span>
               <p>${escapeHtml(data.clinic.address)}<br>${escapeHtml(data.clinic.location)}</p>
             </a>
-            <a href="${escapeHtml(data.clinic.phoneUrl)}">
-              <span>02</span>
-              <p>${escapeHtml(data.clinic.phone)}</p>
-            </a>
             <a href="mailto:${escapeHtml(data.clinic.email)}">
-              <span>03</span>
+              <span>02</span>
               <p>${escapeHtml(data.clinic.email)}</p>
             </a>
             <div>
-              <span>04</span>
+              <span>03</span>
               <div class="home-find-hours">${hours}</div>
             </div>
           </div>
@@ -432,6 +503,28 @@
     `;
   }
 
+
+  function medicalReviewSection() {
+    const review = data.medicalReview;
+    if (!review) return "";
+    return html`
+      <section class="section medical-review-section" aria-label="Medical review details">
+        <article class="medical-review-panel">
+          <div>
+            <p class="eyebrow">Medical review</p>
+            <h2>${escapeHtml(review.title)}</h2>
+            <p>${escapeHtml(review.text)}</p>
+          </div>
+          <dl class="review-meta-grid">
+            <div><dt>Reviewed by</dt><dd>${escapeHtml(review.reviewer)}</dd></div>
+            <div><dt>Author</dt><dd>${escapeHtml(review.author)}</dd></div>
+            <div><dt>Published</dt><dd>${escapeHtml(review.published)}</dd></div>
+            <div><dt>Updated</dt><dd>${escapeHtml(review.updated)}</dd></div>
+          </dl>
+        </article>
+      </section>
+    `;
+  }
   const pages = {
     home: () => html`
       <main>
@@ -439,18 +532,23 @@
           <video class="hero-video" data-src="${data.clinic.heroVideo}" poster="${data.clinic.heroPoster}" muted loop playsinline preload="none" aria-hidden="true"></video>
           <div class="hero-overlay"></div>
           <div class="hero-content">
-            <h1 class="hero-styled-title"><span>Rejuvenate your skin</span><em>restore confidence</em></h1>
-            <p class="hero-short-line">Personal skin, hair and aesthetic care planned with clarity.</p>
-            <div class="actions hero-single-action">
-              <a class="button primary call-button" href="${data.clinic.phoneUrl}">Enquire Now</a>
+            <h1 class="hero-styled-title"><span>Personal skin care</span><em>planned around you</em></h1>
+            <p class="hero-short-line">Dermis Aesthetics listens first, checks your concern and explains appropriate skin, hair and laser care clearly.</p>
+            <div class="actions hero-conversion-actions">
+              <a class="button primary call-button" href="${data.clinic.phoneUrl}">Book Consultation</a>
+              <a class="button secondary whatsapp-button" href="${data.clinic.whatsappUrl}" target="_blank" rel="noopener">${whatsappIcon()} WhatsApp Now</a>
+            </div>
+            <div class="hero-trust-row" aria-label="Dermis Aesthetics trust highlights">
+              <span>Skin &amp; hair clinic</span>
+              <span>Chemmad, Malappuram</span>
+              <span>Assessment-first care</span>
             </div>
           </div>
         </section>
 
         <section class="section dermis-about-showcase" aria-label="Why choose Dermis Aesthetics">
           <div class="dermis-showcase-copy">
-            <a class="showcase-mini-link" href="about.html">More About Us</a>
-            <h2>Dermis Aesthetics <em>treatments</em></h2>
+            <h2>Dermis Aesthetics <em>Where Confidence Begins</em></h2>
           </div>
           <figure class="dermis-showcase-portrait">
             <img src="assets/images/showcase/confident-glow-face.png" alt="Confident glowing face for Dermis Aesthetics skin care" loading="lazy">
@@ -458,27 +556,24 @@
           <div class="dermis-showcase-points">
             <article>
               <h3>Why Dermis Aesthetics</h3>
-              <p>Every skin and hair concern is different. We listen first, understand your concern, and suggest care that feels personal, clear and suitable for you.</p>
+              <p>Every skin and hair concern is different. We listen first, understand your concern, and suggest care that feels personal, clear and appropriate for your concern.</p>
             </article>
             <article>
               <h3>Modern aesthetic care</h3>
-              <p>Our clinic combines careful consultation, advanced treatment options and a calm patient experience for skin, hair, laser and aesthetic concerns.</p>
+              <p>Our clinic combines careful assessment, advanced treatment options and a calm patient experience for skin, hair, laser and aesthetic concerns.</p>
             </article>
-            <a class="showcase-about-link" href="about.html">More About Us <span aria-hidden="true">&rarr;</span></a>
           </div>
         </section>
 
         <section class="section home-treatments-section">
-          <div class="section-heading">
-            <p class="eyebrow">Treatments</p>
-            <h2>Treatments we provide at Dermis.</h2>
-            <p>From acne and pigmentation to hair fall, dandruff, laser hair reduction and skin rejuvenation, our treatments are planned only after checking your concern and suitability.</p>
-          </div>
+          <div class="home-treatments-title"><h2>Treatments</h2></div>
           <div class="treatment-list home-treatment-list">${treatmentCards()}</div>
           <div class="section-actions">
             ${button("View Full Treatments", "treatments.html", "secondary")}
           </div>
         </section>
+
+        ${medicalReviewSection()}
 
         ${instagramShowcase()}
 
@@ -497,12 +592,12 @@
             <p class="eyebrow">About the clinic</p>
             <article class="about-story-block">
               <h1>Why <em>Dermis Aesthetics?</em></h1>
-              <p>Dermis Aesthetics is a skin, hair, laser and aesthetic clinic in Chemmad, Malappuram, focused on thoughtful consultation, comfortable care and treatment planning that feels personal to each patient.</p>
-              <p>We care for concerns such as acne, pigmentation, hair fall, dandruff, tanning, acne marks, open pores, dull skin, unwanted hair and selected aesthetic needs after understanding your concern, history and suitability.</p>
+              <p>Dermis Aesthetics is a skin, hair, laser and aesthetic clinic in Chemmad, Malappuram, focused on thoughtful assessment, comfortable care and treatment planning that feels personal to each patient.</p>
+              <p>We care for concerns such as acne, pigmentation, hair fall, dandruff, tanning, acne marks, open pores, dull skin, unwanted hair and aesthetic needs after understanding your concern, history and clinical context.</p>
             </article>
             <article class="about-story-block">
               <h2>Why choose us?</h2>
-              <p>Every visit begins with listening. We explain suitable options in simple language, including expected sessions, aftercare, healing time and realistic improvement, so you can make decisions with confidence.</p>
+              <p>Every visit begins with listening. We explain appropriate options in simple language, including expected sessions, aftercare, healing time and realistic improvement, so you can make decisions with confidence.</p>
               <p>Our approach combines modern treatment options such as chemical peeling, carbon laser peel, medical hydra facial, microneedling, PRP, GFC and laser hair reduction with calm, respectful patient guidance.</p>
             </article>
           </div>
@@ -512,8 +607,8 @@
             <span class="about-standard-icon" aria-hidden="true">
               <svg viewBox="0 0 48 48"><path d="M10 12h28v18H22l-8 7v-7h-4V12Z"/></svg>
             </span>
-            <h3>Consultation First</h3>
-            <p>No treatment is recommended before understanding your concern and suitability.</p>
+            <h3>Assessment First</h3>
+            <p>No treatment is recommended before understanding your concern, history and clinical context.</p>
           </article>
           <article class="about-standard-card">
             <span class="about-standard-icon" aria-hidden="true">
@@ -544,20 +639,40 @@
           </div>
           <div class="team-showcase" aria-label="Dermis Aesthetics care team">
             <article class="team-profile primary-profile">
-              <div class="team-avatar initials">DR</div>
+              <div class="team-avatar photo-avatar"><img src="assets/images/team/dr-raoof-malayil.png" alt="Dr. Raoof Malayil, Clinic Lead at Dermis Aesthetics"></div>
               <h3>Dr. Raoof Malayil</h3>
               <p>MBBS, Clinic Lead</p>
               <span>Aesthetic skin and hair care guidance</span>
             </article>
-            <article class="team-profile">
-              <div class="team-avatar logo-avatar"><img src="logo.png" alt="Dermis Aesthetics team"></div>
-              <h3>Clinical Support Team</h3>
-              <p>Patient care and preparation</p>
+          </div>
+          <div class="clinic-staff-grid" aria-label="Clinic staff and technicians">
+            <article class="staff-card">
+              <span class="staff-avatar" aria-hidden="true">CC</span>
+              <div>
+                <h3>Clinic Coordinator</h3>
+                <p>Appointment support, patient flow and visit preparation.</p>
+              </div>
             </article>
-            <article class="team-profile">
-              <div class="team-avatar initials small">DA</div>
-              <h3>Treatment Support</h3>
-              <p>Laser, facial and procedure assistance</p>
+            <article class="staff-card">
+              <span class="staff-avatar" aria-hidden="true">LT</span>
+              <div>
+                <h3>Laser Technician</h3>
+                <p>Laser room preparation, device readiness and treatment assistance.</p>
+              </div>
+            </article>
+            <article class="staff-card">
+              <span class="staff-avatar" aria-hidden="true">AT</span>
+              <div>
+                <h3>Aesthetic Therapist</h3>
+                <p>Hydra facial, skin-care support and procedure comfort.</p>
+              </div>
+            </article>
+            <article class="staff-card">
+              <span class="staff-avatar" aria-hidden="true">PC</span>
+              <div>
+                <h3>Patient Care Assistant</h3>
+                <p>Aftercare guidance, follow-up reminders and clinic hygiene support.</p>
+              </div>
             </article>
           </div>
         </section>
@@ -568,8 +683,34 @@
             <h2>Modern support for skin, hair and laser care.</h2>
           </div>
           <div>
-            <p>The clinic uses treatment-focused equipment for services such as laser hair reduction, carbon laser peel, hydra facial, microneedling and regenerative hair care support. Equipment selection and treatment settings are considered based on concern, skin type and suitability.</p>
+            <p>The clinic uses treatment-focused equipment for services such as laser hair reduction, carbon laser peel, hydra facial, microneedling and regenerative hair care support. Equipment selection and treatment settings are considered based on concern, skin type and clinical assessment.</p>
             <p>Our aim is to combine modern aesthetic technology with careful explanation, hygiene, comfort and realistic guidance for every patient visit.</p>
+          </div>
+          <div class="equipment-card-grid" aria-label="Dermis Aesthetics treatment equipment">
+            <article class="equipment-card">
+              <img src="assets/images/equipment/hydra-facial-machine-clean.jpg" alt="Hydra facial equipment at Dermis Aesthetics" loading="lazy">
+              <div>
+                <span>Facials &amp; glow</span>
+                <h3>Hydra Facial</h3>
+                <p>Used for cleansing, hydration and refreshed skin glow after assessment.</p>
+              </div>
+            </article>
+            <article class="equipment-card">
+              <img src="assets/images/equipment/laser-machine-clean.jpg" alt="Laser treatment equipment at Dermis Aesthetics" loading="lazy">
+              <div>
+                <span>Laser care</span>
+                <h3>Laser</h3>
+                <p>Supports laser hair reduction and suitable laser-based skin procedures.</p>
+              </div>
+            </article>
+            <article class="equipment-card">
+              <img src="assets/images/equipment/carbon-laser-machine-clean.jpg" alt="Carbon laser equipment at Dermis Aesthetics" loading="lazy">
+              <div>
+                <span>Carbon peel</span>
+                <h3>Carbon Laser</h3>
+                <p>Used for carbon laser peel planning where the skin check supports it.</p>
+              </div>
+            </article>
           </div>
         </section>
       </main>
@@ -663,15 +804,15 @@
           category: "Skin Texture",
           time: "2 min read",
           image: "assets/images/treatments/microneedling.jpg",
-          text: "For selected skin texture concerns, microneedling may be discussed after checking suitability, sensitivity and aftercare needs.",
+          text: "For texture concerns, microneedling may be discussed after checking sensitivity, goals and aftercare needs.",
           url: "treatments.html"
         },
         {
-          title: "PRP and GFC care for selected hair concerns",
+          title: "PRP and GFC care for appropriate hair concerns",
           category: "Regenerative Care",
           time: "3 min read",
           image: "assets/images/treatments/GFC.jpg",
-          text: "PRP and GFC are discussed only after understanding the concern, scalp condition and whether the treatment is suitable for the patient.",
+          text: "PRP and GFC are discussed only after understanding the concern, scalp condition and whether the treatment is appropriate for the patient.",
           url: "hair-fall-treatment-chemmad.html"
         }
       ];
@@ -688,6 +829,7 @@
                 </a>
                 <div class="blog-card-body">
                   <div class="blog-meta"><span>${escapeHtml(post.category)}</span><small>${escapeHtml(post.time)}</small></div>
+                  <p class="blog-review-meta blog-review-marker">By ${escapeHtml(data.medicalReview.author)} · Reviewed by ${escapeHtml(data.medicalReview.reviewer)} · Updated ${escapeHtml(data.medicalReview.updated)}</p>
                   <h2>${escapeHtml(post.title)}</h2>
                   <p>${escapeHtml(post.text)}</p>
                   <a class="blog-read-link" href="${escapeHtml(post.url)}">Read more</a>
@@ -700,6 +842,7 @@
     },
     qa: () => html`
       <main>
+        <section class="section qa-review-section">${medicalReviewSection()}</section>
         <section class="section faq">
           ${data.faqs.map((faq, index) => html`
             <details ${index === 0 ? "open" : ""}>
@@ -712,49 +855,78 @@
     `,
 
     contact: () => html`
-      <main>
-        ${pageHero(
-          "",
-          "Let's Connect",
-          "Call or message us to book a consultation, ask about a concern, or get location guidance."
-        )}
-        <section class="section contact-grid">
-          <div class="contact-card">
-            <h2>Contact Dermis Aesthetics</h2>
-            <p><strong>${data.clinic.name}</strong></p>
-            <p>${data.clinic.location}<br>${data.clinic.address}</p>
-            <p><strong>Phone:</strong> ${data.clinic.phone}</p>
-            <div class="hours-block">
-              <strong>Clinic Opens</strong>
-              ${clinicHours()}
+      <main class="contact-page-standard">
+        <section class="section contact-standard-section">
+          <div class="contact-standard-intro">
+            <div>
+              <p class="eyebrow">Contact Dermis</p>
+              <h1>Visit Dermis Aesthetics</h1>
             </div>
-            <div class="contact-actions">
-              <a class="button primary call-button" href="${data.clinic.phoneUrl}">Enquire Now</a>
-              <a class="button secondary whatsapp-button" href="${data.clinic.whatsappUrl}">${whatsappIcon()} Chat on WhatsApp</a>
-            </div>
-            <p><a href="${data.clinic.googleProfile}" target="_blank" rel="noopener">Open our Google profile</a></p>
           </div>
-      <div class="map-wrap" aria-label="Google Map location for ${data.clinic.name}">
-        <div class="map-fallback">
-          <strong>${data.clinic.name}</strong>
-          <span>${data.clinic.address}, ${data.clinic.location}</span>
-          <a class="button primary" href="${data.clinic.mapUrl}" target="_blank" rel="noopener">Open in Google Maps</a>
-        </div>
-        <iframe
-          title="${data.clinic.name} Google Map"
-          src="${data.clinic.mapEmbed}"
-              width="600"
-              height="450"
-              style="border:0;"
-              allowfullscreen
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+          <div class="contact-standard-grid">
+            <article class="contact-standard-card">
+              <h2>Clinic Details</h2>
+              <div class="contact-detail-list">
+                <div>
+                  <span>Clinic</span>
+                  <strong>${data.clinic.name}</strong>
+                </div>
+                <div>
+                  <span>Address</span>
+                  <p>${data.clinic.address}<br>${data.clinic.location}</p>
+                </div>
+                <div>
+                  <span>Phone</span>
+                  <a href="${data.clinic.phoneUrl}">${data.clinic.phone}</a>
+                </div>
+                <div>
+                  <span>Email</span>
+                  <a href="mailto:${data.clinic.email}">${data.clinic.email}</a>
+                </div>
+              </div>
+
+              <div class="contact-hours-panel">
+                <strong>Clinic Hours</strong>
+                ${clinicHours()}
+              </div>
+
+              <div class="contact-actions">
+                <a class="button primary call-button" href="${data.clinic.phoneUrl}">Enquire Now</a>
+                <a class="button secondary whatsapp-button" href="${data.clinic.whatsappUrl}" target="_blank" rel="noopener">${whatsappIcon()} WhatsApp</a>
+              </div>
+            </article>
+
+            <article class="contact-map-card">
+              <div class="contact-map-head">
+                <div>
+                  <p class="eyebrow">Location</p>
+                  <h2>Find us easily</h2>
+                </div>
+                <a href="${data.clinic.mapUrl}" target="_blank" rel="noopener">Open in Google Maps</a>
+              </div>
+              <div class="map-wrap contact-map-wrap" aria-label="Google Map location for ${data.clinic.name}">
+                <div class="map-fallback">
+                  <strong>${data.clinic.name}</strong>
+                  <span>${data.clinic.address}, ${data.clinic.location}</span>
+                  <a class="button primary" href="${data.clinic.mapUrl}" target="_blank" rel="noopener">Open in Google Maps</a>
+                </div>
+                <iframe
+                  title="${data.clinic.name} Google Map"
+                  src="${data.clinic.mapEmbed}"
+                  width="600"
+                  height="520"
+                  style="border:0;"
+                  allowfullscreen
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </article>
           </div>
         </section>
       </main>
     `
     ,
-
     service: () => {
       const key = document.body.dataset.service;
       const service = data.servicePages[key] || data.servicePages.acne;
@@ -768,7 +940,7 @@
           )}
           <section class="section split service-detail">
             <div>
-              <p class="eyebrow">Consultation-led care</p>
+              <p class="eyebrow">Assessment-led care</p>
               <h2>Planned after understanding your concern.</h2>
               <p>${escapeHtml(service.focus)}</p>
               <p>${escapeHtml(service.note)}</p>
@@ -782,6 +954,7 @@
               ${checkList(service.treatments)}
             </aside>
           </section>
+          <section class="section service-review-section">${medicalReviewSection()}</section>
           <section class="section service-links-section">
             <div class="section-heading">
               <p class="eyebrow">More concerns</p>
@@ -858,27 +1031,8 @@
 
 
   const showcaseImage = document.querySelector(".dermis-showcase-portrait img");
-  const showcaseSection = document.querySelector(".dermis-about-showcase");
-  if (showcaseImage && showcaseSection && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    let ticking = false;
-    const updateShowcaseZoom = () => {
-      const rect = showcaseSection.getBoundingClientRect();
-      const viewport = window.innerHeight || document.documentElement.clientHeight;
-      const rawProgress = 1 - Math.abs((rect.top + rect.height / 2) - viewport / 2) / (viewport + rect.height / 2);
-      const progress = Math.max(0, Math.min(1, rawProgress));
-      const scale = 1.005 + progress * 0.035;
-      showcaseImage.style.setProperty("--showcase-zoom", scale.toFixed(3));
-      ticking = false;
-    };
-    const requestShowcaseZoom = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateShowcaseZoom);
-        ticking = true;
-      }
-    };
-    updateShowcaseZoom();
-    window.addEventListener("scroll", requestShowcaseZoom, { passive: true });
-    window.addEventListener("resize", requestShowcaseZoom);
+  if (showcaseImage) {
+    showcaseImage.style.removeProperty("--showcase-zoom");
   }
   const menuToggle = document.querySelector(".menu-toggle");
   const headerRight = document.querySelector(".header-right");
@@ -1044,7 +1198,7 @@
         subject ? `Concern: ${subject}` : "",
         message ? `Message: ${message}` : ""
       ].filter(Boolean);
-      window.open(whatsappBaseUrl + encodeURIComponent(lines.join("\n")), "_blank", "noopener");
+      window.open(whatsappBaseUrl + encodeURIComponent(lines.join("\\n")), "_blank", "noopener");
     });
   });
   if (whatsappPopup && whatsappPopupClose) {
@@ -1054,6 +1208,16 @@
     });
   }
 })();
+
+
+
+
+
+
+
+
+
+
 
 
 
