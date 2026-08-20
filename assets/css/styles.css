@@ -10694,13 +10694,14 @@ body[data-page="treatments"] main::before {
     margin-bottom: 24px !important;
   }
 }
-/* dermis-desktop-90-visibility */
+/* dermis-desktop-80-visibility */
 @media (min-width: 1024px) {
   html {
-    font-size: 90% !important;
+    font-size: 80% !important;
   }
 
   body {
     min-width: 0 !important;
   }
 }
+
