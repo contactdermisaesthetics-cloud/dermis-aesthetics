@@ -70,16 +70,6 @@
             <a href="contact.html">Contact</a>
           </section>
           <section>
-            <h3>Popular Treatments</h3>
-            <p class="footer-section-note">Helpful pages for common skin, hair and laser concerns.</p>
-            <a href="acne-treatment-chemmad.html">Acne Care</a>
-            <a href="hair-fall-treatment-chemmad.html">Hair & Scalp Care</a>
-            <a href="dandruff-treatment-chemmad.html">Dandruff Care</a>
-            <a href="pigmentation-treatment-chemmad.html">Pigmentation Care</a>
-            <a href="hydrafacial-chemmad.html">Hydra Facial</a>
-            <a href="treatments.html">Laser Hair Reduction</a>
-          </section>
-          <section>
             <h3>Quick Help</h3>
             <a href="${data.clinic.whatsappUrl}" target="_blank" rel="noopener">WhatsApp Now</a>
             <a href="${data.clinic.phoneUrl}">Enquire Now</a>
@@ -424,19 +414,6 @@
       </article>
     `).join("");
   }
-
-  function servicePageLinks() {
-    const links = [
-      ["Acne Treatment", "acne-treatment-chemmad.html"],
-      ["Hair Fall Care", "hair-fall-treatment-chemmad.html"],
-      ["Dandruff Treatment", "dandruff-treatment-chemmad.html"],
-      ["Pigmentation Care", "pigmentation-treatment-chemmad.html"],
-      ["Hydrafacial", "hydrafacial-chemmad.html"]
-    ];
-
-    return links.map(([label, url]) => `<a href="${url}">${label}</a>`).join("");
-  }
-
   function whyChooseCards() {
     const reasons = [
       {
@@ -676,7 +653,7 @@
           time: "3 min read",
           image: "https://images.pexels.com/photos/3985329/pexels-photo-3985329.jpeg?auto=compress&cs=tinysrgb&w=1200",
           text: "Breakouts, oily skin, acne marks and recurring pimples need a calm look at your skin type, routine and triggers before choosing care.",
-          url: "acne-treatment-chemmad.html"
+          url: "treatments.html"
         },
         {
           title: "When dandruff keeps coming back",
@@ -684,7 +661,7 @@
           time: "2 min read",
           image: "https://images.pexels.com/photos/3993466/pexels-photo-3993466.jpeg?auto=compress&cs=tinysrgb&w=1200",
           text: "Flakes, itching and scalp irritation can have different causes. We explain what may be happening and how scalp care can be planned.",
-          url: "dandruff-treatment-chemmad.html"
+          url: "treatments.html"
         },
         {
           title: "Pigmentation and dark spots: what to know",
@@ -692,7 +669,7 @@
           time: "3 min read",
           image: "assets/images/treatments/carbon-laser.jpg",
           text: "Dark spots, tanning, melasma and uneven tone are approached differently depending on your skin type and depth of pigmentation.",
-          url: "pigmentation-treatment-chemmad.html"
+          url: "treatments.html"
         },
         {
           title: "Hair fall care needs proper assessment",
@@ -700,7 +677,7 @@
           time: "3 min read",
           image: "assets/images/instagram-covers/prp-reel.jpg",
           text: "Hair fall may be linked to scalp health, stress, lifestyle, nutrition or history. The first step is understanding the reason clearly.",
-          url: "hair-fall-treatment-chemmad.html"
+          url: "treatments.html"
         },
         {
           title: "Hydra facial and skin glow treatments",
@@ -708,7 +685,7 @@
           time: "2 min read",
           image: "assets/images/instagram-covers/dermis-featured-reel.jpg",
           text: "Skin glow care should feel fresh and suitable for your skin. We explain what to expect before starting any facial treatment.",
-          url: "hydrafacial-chemmad.html"
+          url: "treatments.html"
         },
         {
           title: "Laser hair reduction: simple patient guidance",
@@ -732,7 +709,7 @@
           time: "3 min read",
           image: "assets/images/treatments/GFC.jpg",
           text: "PRP and GFC are discussed only after understanding the concern, scalp condition and whether the treatment is appropriate for the patient.",
-          url: "hair-fall-treatment-chemmad.html"
+          url: "treatments.html"
         }
       ];
 
@@ -843,44 +820,6 @@
         </section>
       </main>
     `
-    ,
-    service: () => {
-      const key = document.body.dataset.service;
-      const service = data.servicePages[key] || data.servicePages.acne;
-
-      return html`
-        <main>
-          ${pageHero(
-            service.eyebrow,
-            service.title,
-            service.intro
-          )}
-          <section class="section split service-detail">
-            <div>
-              <p class="eyebrow">Assessment-led care</p>
-              <h2>Planned after understanding your concern.</h2>
-              <p>${escapeHtml(service.focus)}</p>
-              <p>${escapeHtml(service.note)}</p>
-              <div class="actions">
-                <a class="button primary call-button" href="${data.clinic.phoneUrl}">Enquire Now</a>
-                <a class="button secondary whatsapp-button" href="${data.clinic.whatsappUrl}">${whatsappIcon()} WhatsApp Now</a>
-              </div>
-            </div>
-            <aside class="info-panel">
-              <h3>What may be discussed</h3>
-              ${checkList(service.treatments)}
-            </aside>
-          </section>
-          <section class="section service-links-section">
-            <div class="section-heading">
-              <p class="eyebrow">More concerns</p>
-              <h2>Explore related services.</h2>
-            </div>
-            <div class="service-page-links">${servicePageLinks()}</div>
-          </section>
-        </main>
-      `;
-    }
   };
 
   root.innerHTML = renderHeader() + (pages[page] || pages.home)() + renderFooter() + renderWhatsAppChatbox();
@@ -1124,6 +1063,9 @@
     });
   }
 })();
+
+
+
 
 
 

@@ -10554,13 +10554,6 @@ body[data-page="about"] .about-standard-card p {
   align-items: flex-start !important;
 }
 
-.dermis-clean-footer .footer-section-note {
-  max-width: 260px !important;
-  margin: 0 0 14px !important;
-  color: rgba(31, 41, 51, 0.64) !important;
-  font-size: 0.94rem !important;
-  line-height: 1.45 !important;
-}
 
 .dermis-clean-footer .footer-link-row section:nth-child(2) a {
   width: fit-content !important;
@@ -10704,4 +10697,5 @@ body[data-page="treatments"] main::before {
     min-width: 0 !important;
   }
 }
+
 

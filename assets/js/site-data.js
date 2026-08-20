@@ -1,4 +1,4 @@
-window.DERMIS_SITE = {
+﻿window.DERMIS_SITE = {
   clinic: {
     name: "Dermis Aesthetics",
     tagline: "Skin | Hair | Laser",
@@ -48,11 +48,6 @@ window.DERMIS_SITE = {
     text: "Treatment information on this website is reviewed by the Dermis Aesthetics clinical team before publication. It is written for patient education and does not replace an in-person consultation, diagnosis or treatment plan."
   },
   footerLinks: [
-    { label: "Acne Treatment", url: "acne-treatment-chemmad.html" },
-    { label: "Hair Fall Care", url: "hair-fall-treatment-chemmad.html" },
-    { label: "Dandruff Treatment", url: "dandruff-treatment-chemmad.html" },
-    { label: "Pigmentation Care", url: "pigmentation-treatment-chemmad.html" },
-    { label: "Hydrafacial", url: "hydrafacial-chemmad.html" },
     { label: "Laser Hair Reduction", url: "treatments.html" },
     { label: "Location", url: "contact.html" },
     { label: "Call Now", url: "tel:+918113860971" }
@@ -347,6 +342,7 @@ window.DERMIS_SITE = {
     "Skin rejuvenation and aesthetic care"
   ]
 };
+
 
 
 
