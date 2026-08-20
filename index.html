@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    if (window.location.pathname.endsWith('/index.html')) {
+      window.history.replaceState(null, '', window.location.pathname.replace(/index\.html$/, '') + window.location.search + window.location.hash);
+    }
+  </script>
   <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png?v=1">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=1">
   <link rel="shortcut icon" href="/favicon.png?v=1">
@@ -36,10 +41,12 @@
 </head>
 <body data-page="home">
   <div id="site-root"></div>
-  <script src="assets/js/site-data.js?v=265"></script>
-  <script src="assets/js/app.js?v=266"></script>
+  <script src="assets/js/site-data.js?v=266"></script>
+  <script src="assets/js/app.js?v=267"></script>
 </body>
 </html>
+
+
 
 
 

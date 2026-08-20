@@ -54,7 +54,7 @@
   ],
 
   nav: [
-    { id: "home", label: "Home", url: "index.html" },
+    { id: "home", label: "Home", url: "/" },
     { id: "about", label: "About", url: "about.html" },
     { id: "treatments", label: "Treatments", url: "treatments.html" },
     { id: "blog", label: "Blog", url: "blog.html" },
@@ -342,6 +342,7 @@
     "Skin rejuvenation and aesthetic care"
   ]
 };
+
 
 
 

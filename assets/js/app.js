@@ -22,7 +22,7 @@
 
     return html`
       <header class="site-header">
-        <a class="brand logo-container" href="index.html" aria-label="${data.clinic.name} home">
+        <a class="brand logo-container" href="/" aria-label="${data.clinic.name} home">
           <img src="${data.clinic.logo}" alt="${data.clinic.name} Logo" class="site-logo">
         </a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
@@ -62,7 +62,7 @@
         <div class="footer-link-row">
           <section>
             <h3>Overview</h3>
-            <a href="index.html">Home</a>
+            <a href="/">Home</a>
             <a href="about.html">About</a>
             <a href="treatments.html">Treatments</a>
             <a href="blog.html">Blog</a>
@@ -1063,6 +1063,7 @@
     });
   }
 })();
+
 
 
 
