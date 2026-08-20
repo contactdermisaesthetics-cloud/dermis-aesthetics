@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --ink: #1f2933;
   --muted: #66707a;
   --line: #e7dce8;
@@ -10234,5 +10234,473 @@ body[data-page="about"] .equipment-card p {
 
   body[data-page="about"] .equipment-card img {
     aspect-ratio: 16 / 10;
+  }
+}
+/* dermis-equipment-card-perfect-fit */
+body[data-page="about"] .equipment-card {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+body[data-page="about"] .equipment-card img {
+  height: clamp(300px, 28vw, 410px) !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  padding: clamp(14px, 1.6vw, 22px) !important;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfbfd 100%) !important;
+}
+
+body[data-page="about"] .equipment-card div {
+  margin-top: auto !important;
+}
+
+@media (max-width: 980px) {
+  body[data-page="about"] .equipment-card img {
+    height: clamp(280px, 58vw, 430px) !important;
+  }
+}
+/* dermis-staff-card-polish */
+body[data-page="about"] .clinic-staff-grid {
+  gap: clamp(18px, 2.2vw, 28px) !important;
+}
+
+body[data-page="about"] .staff-card {
+  grid-template-columns: 1fr !important;
+  gap: 18px !important;
+  min-height: 230px !important;
+  padding: clamp(24px, 2.4vw, 32px) !important;
+}
+
+body[data-page="about"] .staff-avatar {
+  width: 54px !important;
+  height: 54px !important;
+  font-size: 0.9rem !important;
+}
+
+body[data-page="about"] .staff-card h3 {
+  max-width: 100% !important;
+  margin-bottom: 10px !important;
+  font-size: clamp(21px, 1.45vw, 25px) !important;
+  line-height: 1.05 !important;
+}
+
+body[data-page="about"] .staff-card p {
+  max-width: 24ch !important;
+  font-size: clamp(14px, 0.95vw, 15.5px) !important;
+  line-height: 1.68 !important;
+}
+
+@media (max-width: 1060px) {
+  body[data-page="about"] .staff-card {
+    min-height: 210px !important;
+  }
+
+  body[data-page="about"] .staff-card p {
+    max-width: 34ch !important;
+  }
+}
+/* dermis-doctor-name-typography-refine */
+body[data-page="about"] .team-profile.primary-profile h3 {
+  font-family: var(--font-body) !important;
+  font-weight: 800 !important;
+  font-size: clamp(32px, 2.8vw, 44px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -0.01em !important;
+  text-wrap: balance !important;
+}
+/* dermis-about-open-layout-not-card-ui */
+body[data-page="about"] main {
+  background: linear-gradient(180deg, #fffdf9 0%, #fbf7fb 42%, #ffffff 100%) !important;
+}
+
+body[data-page="about"] .about-choice-hero,
+body[data-page="about"] .meet-team-section,
+body[data-page="about"] .equipment-showcase {
+  width: min(1180px, calc(100% - 44px)) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+body[data-page="about"] .about-choice-hero {
+  padding-top: clamp(66px, 8vw, 116px) !important;
+  padding-bottom: clamp(66px, 8vw, 116px) !important;
+  border-bottom: 1px solid rgba(31, 41, 51, 0.08) !important;
+}
+
+body[data-page="about"] .about-standards-section {
+  width: min(1180px, calc(100% - 44px)) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  background: transparent !important;
+}
+
+body[data-page="about"] .about-standard-card,
+body[data-page="about"] .team-profile.primary-profile,
+body[data-page="about"] .equipment-card,
+body[data-page="about"] .medical-review-panel {
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+body[data-page="about"] .team-profile.primary-profile {
+  width: min(100%, 420px) !important;
+  padding: 0 !important;
+}
+
+body[data-page="about"] .team-profile.primary-profile::before {
+  display: none !important;
+}
+
+body[data-page="about"] .team-profile.primary-profile .team-avatar.photo-avatar {
+  background: #fff !important;
+  border: 1px solid rgba(181, 48, 160, 0.12) !important;
+  box-shadow: 0 18px 54px rgba(58, 47, 86, 0.08) !important;
+}
+
+body[data-page="about"] .equipment-showcase {
+  padding-top: clamp(58px, 7vw, 94px) !important;
+  padding-bottom: clamp(58px, 7vw, 94px) !important;
+  border-top: 1px solid rgba(31, 41, 51, 0.08) !important;
+}
+
+body[data-page="about"] .equipment-card-grid {
+  gap: clamp(24px, 3vw, 42px) !important;
+}
+
+body[data-page="about"] .equipment-card img {
+  padding: 0 !important;
+  border-radius: 18px !important;
+  background: #fff !important;
+  box-shadow: 0 16px 48px rgba(58, 47, 86, 0.08) !important;
+}
+
+body[data-page="about"] .equipment-card div {
+  padding: 18px 0 0 !important;
+}
+
+body[data-page="about"] .equipment-card span {
+  margin-bottom: 6px !important;
+}
+
+@media (max-width: 720px) {
+  body[data-page="about"] .about-choice-hero,
+  body[data-page="about"] .meet-team-section,
+  body[data-page="about"] .equipment-showcase,
+  body[data-page="about"] .about-standards-section {
+    width: min(100% - 28px, 640px) !important;
+  }
+}
+/* dermis-about-standards-readable-color-restore */
+body[data-page="about"] .about-standards-section {
+  color: var(--ink) !important;
+}
+
+body[data-page="about"] .about-standard-card {
+  color: var(--ink) !important;
+}
+
+body[data-page="about"] .about-standard-icon {
+  color: #294ea8 !important;
+  background: rgba(41, 78, 168, 0.08) !important;
+  border-color: rgba(41, 78, 168, 0.14) !important;
+}
+
+body[data-page="about"] .about-standard-icon svg,
+body[data-page="about"] .about-standard-icon path,
+body[data-page="about"] .about-standard-icon circle {
+  stroke: #294ea8 !important;
+  color: #294ea8 !important;
+}
+
+body[data-page="about"] .about-standard-card h3 {
+  color: var(--ink) !important;
+}
+
+body[data-page="about"] .about-standard-card p {
+  color: #5b6879 !important;
+}
+/* dermis-about-standards-background-restore */
+body[data-page="about"] .about-standards-section {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: clamp(62px, 7vw, 104px) clamp(44px, 7vw, 120px) !important;
+  background:
+    radial-gradient(circle at 10% 90%, rgba(201, 168, 106, 0.13), transparent 28%),
+    radial-gradient(circle at 88% 14%, rgba(64, 78, 184, 0.08), transparent 28%),
+    linear-gradient(135deg, #fffdf8 0%, #fbf2fb 54%, #f7f9ff 100%) !important;
+}
+
+body[data-page="about"] .about-standards-section > * {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 720px) {
+  body[data-page="about"] .about-standards-section {
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+  }
+}
+/* dermis-about-standards-old-color-final */
+body[data-page="about"] .about-standards-section {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(181, 48, 160, 0.09), transparent 28%),
+    radial-gradient(circle at 86% 10%, rgba(64, 78, 184, 0.09), transparent 26%),
+    linear-gradient(135deg, #fffdf8 0%, #fbf2fb 54%, #f7f9ff 100%) !important;
+}
+/* dermis-standards-attractive-background */
+body[data-page="about"] .about-standards-section {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  background:
+    linear-gradient(110deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.5)),
+    radial-gradient(circle at 12% 18%, rgba(181, 48, 160, 0.16), transparent 30%),
+    radial-gradient(circle at 88% 14%, rgba(41, 78, 168, 0.15), transparent 32%),
+    radial-gradient(circle at 52% 105%, rgba(201, 168, 106, 0.18), transparent 34%),
+    linear-gradient(135deg, #fffaf7 0%, #fbedf9 46%, #eef4ff 100%) !important;
+}
+
+body[data-page="about"] .about-standards-section::before {
+  content: "";
+  position: absolute;
+  inset: clamp(20px, 3vw, 42px) clamp(24px, 5vw, 86px);
+  z-index: -1;
+  border-radius: 38px;
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  box-shadow: 0 34px 110px rgba(58, 47, 86, 0.08);
+}
+
+body[data-page="about"] .about-standards-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0.45;
+  background-image:
+    linear-gradient(rgba(41, 78, 168, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(181, 48, 160, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(circle at center, black 0%, transparent 72%);
+}
+
+body[data-page="about"] .about-standard-icon {
+  background: rgba(255, 255, 255, 0.7) !important;
+  box-shadow: 0 14px 34px rgba(41, 78, 168, 0.11) !important;
+}
+
+@media (max-width: 720px) {
+  body[data-page="about"] .about-standards-section::before {
+    inset: 16px;
+    border-radius: 28px;
+  }
+}
+/* dermis-standards-more-attractive-color */
+body[data-page="about"] .about-standards-section {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(232, 82, 179, 0.24), transparent 30%),
+    radial-gradient(circle at 88% 16%, rgba(40, 104, 225, 0.22), transparent 32%),
+    radial-gradient(circle at 50% 102%, rgba(255, 196, 88, 0.20), transparent 34%),
+    linear-gradient(135deg, #fff7fb 0%, #fbe9f8 42%, #edf5ff 100%) !important;
+}
+
+body[data-page="about"] .about-standards-section::before {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.42)) !important;
+  border-color: rgba(255, 255, 255, 0.74) !important;
+  box-shadow:
+    0 34px 110px rgba(58, 47, 86, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+body[data-page="about"] .about-standard-icon {
+  color: #244fb8 !important;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(243, 232, 255, 0.95)) !important;
+  border: 1px solid rgba(232, 82, 179, 0.18) !important;
+  box-shadow:
+    0 18px 42px rgba(40, 104, 225, 0.14),
+    0 8px 22px rgba(232, 82, 179, 0.09) !important;
+}
+
+body[data-page="about"] .about-standard-icon svg,
+body[data-page="about"] .about-standard-icon path,
+body[data-page="about"] .about-standard-icon circle {
+  stroke: #244fb8 !important;
+}
+
+body[data-page="about"] .about-standard-card h3 {
+  color: #1f2937 !important;
+}
+
+body[data-page="about"] .about-standard-card p {
+  color: #546177 !important;
+}
+/* dermis-footer-treatment-links-clarity */
+.dermis-clean-footer .footer-link-row section:nth-child(2) {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+}
+
+.dermis-clean-footer .footer-section-note {
+  max-width: 260px !important;
+  margin: 0 0 14px !important;
+  color: rgba(31, 41, 51, 0.64) !important;
+  font-size: 0.94rem !important;
+  line-height: 1.45 !important;
+}
+
+.dermis-clean-footer .footer-link-row section:nth-child(2) a {
+  width: fit-content !important;
+  margin: 0 0 8px !important;
+  padding: 8px 12px !important;
+  border: 1px solid rgba(41, 78, 168, 0.14) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.62) !important;
+  color: #243247 !important;
+  font-size: 0.95rem !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+}
+
+.dermis-clean-footer .footer-link-row section:nth-child(2) a:hover {
+  color: #244fb8 !important;
+  border-color: rgba(41, 78, 168, 0.28) !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+}
+/* dermis-sitewide-heading-uniformity-final */
+:root {
+  --dermis-heading-font: var(--font-display, inherit);
+  --dermis-heading-color: #1f2937;
+  --dermis-title-xl: clamp(4.7rem, 10vw, 8.6rem);
+  --dermis-title-lg: clamp(4rem, 8.2vw, 6.8rem);
+  --dermis-title-md: clamp(3.1rem, 6vw, 4.9rem);
+  --dermis-title-sm: clamp(2.25rem, 4vw, 3.4rem);
+}
+
+body:not([data-page="home"]) main > .page-hero h1,
+body:not([data-page="home"]) .contact-hero h1,
+body:not([data-page="home"]) .why-hero h1,
+body[data-page="about"] .about-hero h1,
+body[data-page="blog"] .blog-hero h1,
+body[data-page="gallery"] .gallery-hero h1,
+body[data-page="treatments"] main::before {
+  font-family: var(--dermis-heading-font) !important;
+  font-size: var(--dermis-title-lg) !important;
+  line-height: 0.92 !important;
+  letter-spacing: 0 !important;
+  font-weight: 900 !important;
+  color: var(--dermis-heading-color) !important;
+  max-width: 980px !important;
+}
+
+body[data-page="treatments"] main {
+  display: block !important;
+  padding: clamp(76px, 9vw, 118px) clamp(22px, 6vw, 96px) clamp(62px, 8vw, 110px) !important;
+  background:
+    radial-gradient(circle at 88% 7%, rgba(232, 82, 179, 0.13), transparent 31%),
+    linear-gradient(135deg, #fffaf8 0%, #fff6fb 48%, #f7f9ff 100%) !important;
+}
+
+body[data-page="treatments"] main::before {
+  content: "Treatments" !important;
+  display: block !important;
+  margin: 0 auto clamp(30px, 4vw, 48px) !important;
+  width: min(100%, 1220px) !important;
+}
+
+body[data-page="treatments"] .treatment-list {
+  width: min(100%, 1220px) !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.section h2,
+.split-section h2,
+.treatment-section h2,
+.blog-section h2,
+.about-section h2 {
+  font-family: var(--dermis-heading-font) !important;
+  font-size: var(--dermis-title-md) !important;
+  line-height: 0.96 !important;
+  letter-spacing: 0 !important;
+  font-weight: 900 !important;
+  color: var(--dermis-heading-color) !important;
+}
+
+.card h3,
+.treatment-card h3,
+.blog-card h3,
+.about-equipment-card h3,
+.service-card h3 {
+  font-family: var(--dermis-heading-font) !important;
+  font-size: clamp(1.75rem, 2.4vw, 2.35rem) !important;
+  line-height: 1.03 !important;
+  letter-spacing: 0 !important;
+  font-weight: 900 !important;
+  color: var(--dermis-heading-color) !important;
+}
+
+body[data-page="home"] .hero h1,
+body[data-page="home"] .hero-title,
+body[data-page="home"] .hero-copy h1 {
+  font-family: var(--dermis-heading-font) !important;
+  font-size: var(--dermis-title-xl) !important;
+  line-height: 0.9 !important;
+  letter-spacing: 0 !important;
+  font-weight: 900 !important;
+  color: var(--dermis-heading-color) !important;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --dermis-title-xl: clamp(3.35rem, 16vw, 5.4rem);
+    --dermis-title-lg: clamp(3rem, 14vw, 4.7rem);
+    --dermis-title-md: clamp(2.35rem, 10vw, 3.5rem);
+  }
+
+  body[data-page="treatments"] main {
+    padding: 72px 20px 68px !important;
+  }
+
+  body[data-page="treatments"] main::before {
+    margin-bottom: 30px !important;
+  }
+}
+/* dermis-treatments-heading-normal-size */
+body[data-page="treatments"] main::before {
+  font-size: clamp(3.15rem, 5.6vw, 4.8rem) !important;
+  line-height: 0.96 !important;
+  margin-bottom: clamp(28px, 3.4vw, 42px) !important;
+  max-width: 1220px !important;
+}
+
+@media (max-width: 720px) {
+  body[data-page="treatments"] main::before {
+    font-size: clamp(2.55rem, 11vw, 3.45rem) !important;
+    margin-bottom: 24px !important;
+  }
+}
+/* dermis-desktop-90-visibility */
+@media (min-width: 1024px) {
+  html {
+    font-size: 90% !important;
+  }
+
+  body {
+    min-width: 0 !important;
   }
 }

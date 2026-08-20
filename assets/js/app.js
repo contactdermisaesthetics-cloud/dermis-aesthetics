@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   const data = window.DERMIS_SITE;
   const page = document.body.dataset.page || "home";
   const root = document.getElementById("site-root");
@@ -70,7 +70,8 @@
             <a href="contact.html">Contact</a>
           </section>
           <section>
-            <h3>Services</h3>
+            <h3>Popular Treatments</h3>
+            <p class="footer-section-note">Helpful pages for common skin, hair and laser concerns.</p>
             <a href="acne-treatment-chemmad.html">Acne Care</a>
             <a href="hair-fall-treatment-chemmad.html">Hair & Scalp Care</a>
             <a href="dandruff-treatment-chemmad.html">Dandruff Care</a>
@@ -216,26 +217,6 @@
       </div>
     `;
   }
-
-  function treatmentFacts(treatment) {
-    const common = {
-      "Chemical Peeling": ["For: dullness, acne marks, uneven tone", "Sessions: planned after skin check", "Downtime: mild redness or peeling may occur", "Aftercare: sunscreen and gentle skin care"],
-      "PRP Therapy": ["For: selected hair fall and scalp concerns", "Procedure: blood sample is processed and used carefully", "Sessions: usually planned as a course", "Aftercare: avoid harsh scalp products briefly"],
-      "GFC Treatment": ["For: selected hair and scalp concerns", "Procedure: growth-factor based care after review", "Sessions: advised according to hair fall pattern", "Performed with clinic supervision"],
-      "Mesotherapy": ["For: selected skin or scalp support", "Procedure: targeted micro-injections when suitable", "Downtime: temporary redness can happen", "Aftercare: follow clinic instructions"],
-      "Microneedling": ["For: acne marks, texture and open pores", "Procedure: controlled micro-channels on skin", "Downtime: redness for a short period may occur", "Aftercare: avoid actives and sun exposure initially"],
-      "Laser Hair Reduction": ["For: unwanted hair on suitable skin and hair types", "Sessions: multiple sittings are usually needed", "Downtime: minimal for most patients", "Aftercare: sun protection and interval follow-up"],
-      "Carbon Laser Peel": ["For: oily skin, dullness, tan and visible pores", "Procedure: carbon layer with laser pass", "Downtime: usually minimal", "Aftercare: sunscreen and gentle cleanser"],
-      "Medical Hydra Facial": ["For: cleansing, hydration and skin freshness", "Procedure: exfoliation, extraction and hydration steps", "Downtime: usually none", "Aftercare: maintain hydration and sunscreen"],
-      "Vampire Facial": ["For: selected rejuvenation and texture goals", "Procedure: regenerative facial planned after review", "Downtime: redness may occur briefly", "Aftercare: strict post-care guidance"],
-      "IV Glutathione": ["For: wellness and glow concerns after screening", "Procedure: IV support under clinic supervision", "Sessions: decided only after counselling", "Safety: medical history is checked first"],
-      "Earlobe Repair": ["For: split, stretched or damaged earlobes", "Procedure: minor closure after evaluation", "Downtime: healing care is explained", "Aftercare: dressing and follow-up guidance"],
-      "Minor Cosmetic Surgery": ["For: selected minor aesthetic concerns", "Procedure: only after consent and explanation", "Downtime: depends on procedure type", "Aftercare: written care guidance is provided"],
-      "Nail Surgery": ["For: painful or recurring nail concerns", "Procedure: planned after examination", "Downtime: depends on nail condition", "Aftercare: wound care and review instructions"],
-      "Circumcision": ["Procedure: after consultation and evaluation", "Timing: planned with clear instructions", "Downtime: healing period is explained in clinic", "Aftercare: hygiene and follow-up guidance"]
-    };
-    return common[treatment.title] || ["Planned after consultation", "Sessions and downtime vary", "Aftercare is explained before treatment", "Performed with clinic supervision"];
-  }
   function treatmentCards(limit) {
     return data.treatments.slice(0, limit || data.treatments.length).map((treatment) => html`
       <article class="card">
@@ -246,9 +227,6 @@
           <span class="card-kicker">${escapeHtml(treatment.category || "Treatment")}</span>
           <h3>${escapeHtml(treatment.title)}</h3>
           <p>${escapeHtml(treatment.text)}</p>
-          <ul class="treatment-facts">
-            ${treatmentFacts(treatment).map((fact) => html`<li>${escapeHtml(fact)}</li>`).join("")}
-          </ul>
         </div>
       </article>
     `).join("");
@@ -644,51 +622,17 @@
               <p>MBBS, Clinic Lead</p>
               <span>Aesthetic skin and hair care guidance</span>
             </article>
-          </div>
-          <div class="clinic-staff-grid" aria-label="Clinic staff and technicians">
-            <article class="staff-card">
-              <span class="staff-avatar" aria-hidden="true">CC</span>
-              <div>
-                <h3>Clinic Coordinator</h3>
-                <p>Appointment support, patient flow and visit preparation.</p>
-              </div>
-            </article>
-            <article class="staff-card">
-              <span class="staff-avatar" aria-hidden="true">LT</span>
-              <div>
-                <h3>Laser Technician</h3>
-                <p>Laser room preparation, device readiness and treatment assistance.</p>
-              </div>
-            </article>
-            <article class="staff-card">
-              <span class="staff-avatar" aria-hidden="true">AT</span>
-              <div>
-                <h3>Aesthetic Therapist</h3>
-                <p>Hydra facial, skin-care support and procedure comfort.</p>
-              </div>
-            </article>
-            <article class="staff-card">
-              <span class="staff-avatar" aria-hidden="true">PC</span>
-              <div>
-                <h3>Patient Care Assistant</h3>
-                <p>Aftercare guidance, follow-up reminders and clinic hygiene support.</p>
-              </div>
-            </article>
-          </div>
-        </section>
+          </div></section>
 
         <section class="section equipment-showcase" aria-label="Dermis Aesthetics equipment details">
           <div>
             <p class="eyebrow">Technology and equipment</p>
             <h2>Modern support for skin, hair and laser care.</h2>
           </div>
-          <div>
-            <p>The clinic uses treatment-focused equipment for services such as laser hair reduction, carbon laser peel, hydra facial, microneedling and regenerative hair care support. Equipment selection and treatment settings are considered based on concern, skin type and clinical assessment.</p>
-            <p>Our aim is to combine modern aesthetic technology with careful explanation, hygiene, comfort and realistic guidance for every patient visit.</p>
-          </div>
+
           <div class="equipment-card-grid" aria-label="Dermis Aesthetics treatment equipment">
             <article class="equipment-card">
-              <img src="assets/images/equipment/hydra-facial-machine-clean.jpg" alt="Hydra facial equipment at Dermis Aesthetics" loading="lazy">
+              <img src="assets/images/equipment/hydra-facial-machine-product.png" alt="Hydra facial equipment at Dermis Aesthetics" loading="lazy">
               <div>
                 <span>Facials &amp; glow</span>
                 <h3>Hydra Facial</h3>
@@ -696,7 +640,7 @@
               </div>
             </article>
             <article class="equipment-card">
-              <img src="assets/images/equipment/laser-machine-clean.jpg" alt="Laser treatment equipment at Dermis Aesthetics" loading="lazy">
+              <img src="assets/images/equipment/laser-machine-product.png" alt="Laser treatment equipment at Dermis Aesthetics" loading="lazy">
               <div>
                 <span>Laser care</span>
                 <h3>Laser</h3>
@@ -704,7 +648,7 @@
               </div>
             </article>
             <article class="equipment-card">
-              <img src="assets/images/equipment/carbon-laser-machine-clean.jpg" alt="Carbon laser equipment at Dermis Aesthetics" loading="lazy">
+              <img src="assets/images/equipment/carbon-laser-machine-product.png" alt="Carbon laser equipment at Dermis Aesthetics" loading="lazy">
               <div>
                 <span>Carbon peel</span>
                 <h3>Carbon Laser</h3>
@@ -829,7 +773,7 @@
                 </a>
                 <div class="blog-card-body">
                   <div class="blog-meta"><span>${escapeHtml(post.category)}</span><small>${escapeHtml(post.time)}</small></div>
-                  <p class="blog-review-meta blog-review-marker">By ${escapeHtml(data.medicalReview.author)} · Reviewed by ${escapeHtml(data.medicalReview.reviewer)} · Updated ${escapeHtml(data.medicalReview.updated)}</p>
+                  <p class="blog-review-meta blog-review-marker">By ${escapeHtml(data.medicalReview.author)} Â· Reviewed by ${escapeHtml(data.medicalReview.reviewer)} Â· Updated ${escapeHtml(data.medicalReview.updated)}</p>
                   <h2>${escapeHtml(post.title)}</h2>
                   <p>${escapeHtml(post.text)}</p>
                   <a class="blog-read-link" href="${escapeHtml(post.url)}">Read more</a>
@@ -1208,6 +1152,7 @@
     });
   }
 })();
+
 
 
 
