@@ -226,7 +226,7 @@
     const featuredReel = {
       title: "Check out our Instagram",
       label: "Testimonial",
-      image: "assets/images/instagram-covers/dermis-featured-reel.jpg",
+      image: "assets/images/blog-covers/blog-hydra-facial-cover.png",
       url: "https://www.instagram.com/reel/DRRWjlyEXaU/",
       text: "Watch our latest Dermis Aesthetics reel and follow us for treatment videos, clinic updates and skin care guidance from our side."
     };
@@ -250,7 +250,7 @@
       {
         title: "PRP treatment",
         label: "Treatment Reel",
-        image: "assets/images/instagram-covers/prp-reel.jpg",
+        image: "assets/images/blog-covers/blog-hair-fall-cover.png",
         url: "https://www.instagram.com/reel/DQYtwMPkcSd/",
         text: "A short PRP treatment video from Dermis Aesthetics."
 
@@ -659,7 +659,7 @@
           title: "When dandruff keeps coming back",
           category: "Scalp Comfort",
           time: "2 min read",
-          image: "https://images.pexels.com/photos/3993466/pexels-photo-3993466.jpeg?auto=compress&cs=tinysrgb&w=1200",
+          image: "assets/images/blog-covers/blog-dandruff-cover.png",
           text: "Flakes, itching and scalp irritation can have different causes. We explain what may be happening and how scalp care can be planned.",
           url: "treatments.html"
         },
@@ -667,7 +667,7 @@
           title: "Pigmentation and dark spots: what to know",
           category: "Tone & Pigmentation",
           time: "3 min read",
-          image: "assets/images/treatments/carbon-laser.jpg",
+          image: "assets/images/blog-covers/blog-carbon-laser-cover.png",
           text: "Dark spots, tanning, melasma and uneven tone are approached differently depending on your skin type and depth of pigmentation.",
           url: "treatments.html"
         },
@@ -675,7 +675,7 @@
           title: "Hair fall care needs proper assessment",
           category: "Hair & Scalp",
           time: "3 min read",
-          image: "assets/images/instagram-covers/prp-reel.jpg",
+          image: "assets/images/blog-covers/blog-hair-fall-cover.png",
           text: "Hair fall may be linked to scalp health, stress, lifestyle, nutrition or history. The first step is understanding the reason clearly.",
           url: "treatments.html"
         },
@@ -683,7 +683,7 @@
           title: "Hydra facial and skin glow treatments",
           category: "Skin Glow",
           time: "2 min read",
-          image: "assets/images/instagram-covers/dermis-featured-reel.jpg",
+          image: "assets/images/blog-covers/blog-hydra-facial-cover.png",
           text: "Skin glow care should feel fresh and suitable for your skin. We explain what to expect before starting any facial treatment.",
           url: "treatments.html"
         },
@@ -1063,6 +1063,7 @@
     });
   }
 })();
+
 
 
 
