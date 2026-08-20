@@ -480,29 +480,6 @@
       </div>
     `;
   }
-
-
-  function medicalReviewSection() {
-    const review = data.medicalReview;
-    if (!review) return "";
-    return html`
-      <section class="section medical-review-section" aria-label="Medical review details">
-        <article class="medical-review-panel">
-          <div>
-            <p class="eyebrow">Medical review</p>
-            <h2>${escapeHtml(review.title)}</h2>
-            <p>${escapeHtml(review.text)}</p>
-          </div>
-          <dl class="review-meta-grid">
-            <div><dt>Reviewed by</dt><dd>${escapeHtml(review.reviewer)}</dd></div>
-            <div><dt>Author</dt><dd>${escapeHtml(review.author)}</dd></div>
-            <div><dt>Published</dt><dd>${escapeHtml(review.published)}</dd></div>
-            <div><dt>Updated</dt><dd>${escapeHtml(review.updated)}</dd></div>
-          </dl>
-        </article>
-      </section>
-    `;
-  }
   const pages = {
     home: () => html`
       <main>
@@ -550,8 +527,6 @@
             ${button("View Full Treatments", "treatments.html", "secondary")}
           </div>
         </section>
-
-        ${medicalReviewSection()}
 
         ${instagramShowcase()}
 
@@ -773,7 +748,6 @@
                 </a>
                 <div class="blog-card-body">
                   <div class="blog-meta"><span>${escapeHtml(post.category)}</span><small>${escapeHtml(post.time)}</small></div>
-                  <p class="blog-review-meta blog-review-marker">By ${escapeHtml(data.medicalReview.author)} Â· Reviewed by ${escapeHtml(data.medicalReview.reviewer)} Â· Updated ${escapeHtml(data.medicalReview.updated)}</p>
                   <h2>${escapeHtml(post.title)}</h2>
                   <p>${escapeHtml(post.text)}</p>
                   <a class="blog-read-link" href="${escapeHtml(post.url)}">Read more</a>
@@ -786,7 +760,6 @@
     },
     qa: () => html`
       <main>
-        <section class="section qa-review-section">${medicalReviewSection()}</section>
         <section class="section faq">
           ${data.faqs.map((faq, index) => html`
             <details ${index === 0 ? "open" : ""}>
@@ -898,7 +871,6 @@
               ${checkList(service.treatments)}
             </aside>
           </section>
-          <section class="section service-review-section">${medicalReviewSection()}</section>
           <section class="section service-links-section">
             <div class="section-heading">
               <p class="eyebrow">More concerns</p>
@@ -1152,6 +1124,7 @@
     });
   }
 })();
+
 
 
 
