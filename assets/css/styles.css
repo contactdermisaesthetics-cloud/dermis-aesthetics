@@ -10697,5 +10697,57 @@ body[data-page="treatments"] main::before {
     min-width: 0 !important;
   }
 }
+/* dermis-hero-trust-text-indicators */
+.hero-trust-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 0 !important;
+  margin-top: clamp(24px, 4vw, 38px) !important;
+}
 
+.hero-trust-row span {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  min-height: auto !important;
+  padding: 0 18px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: rgba(255, 255, 255, 0.86) !important;
+  font-size: clamp(0.88rem, 1vw, 1rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.34) !important;
+}
 
+.hero-trust-row span:first-child {
+  padding-left: 0 !important;
+}
+
+.hero-trust-row span:not(:last-child)::after {
+  content: "" !important;
+  position: absolute !important;
+  right: 0 !important;
+  top: 50% !important;
+  width: 1px !important;
+  height: 18px !important;
+  transform: translateY(-50%) !important;
+  background: rgba(255, 255, 255, 0.42) !important;
+}
+
+@media (max-width: 720px) {
+  .hero-trust-row {
+    row-gap: 10px !important;
+  }
+
+  .hero-trust-row span {
+    padding: 0 12px !important;
+  }
+
+  .hero-trust-row span:first-child {
+    padding-left: 0 !important;
+  }
+}
