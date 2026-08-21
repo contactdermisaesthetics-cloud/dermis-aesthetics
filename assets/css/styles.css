@@ -10871,3 +10871,95 @@ body[data-page="treatments"] main::before {
     display: none !important;
   }
 }
+/* dermis-mobile-home-hero-polish-final */
+@media (max-width: 760px) {
+  body[data-page="home"] .hero-full-cover {
+    min-height: 100svh !important;
+    padding: 126px 0 34px !important;
+  }
+
+  body[data-page="home"] .hero-full-cover .hero-content {
+    justify-content: flex-end !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 clamp(26px, 8vw, 42px) !important;
+    transform: none !important;
+  }
+
+  body[data-page="home"] .hero-styled-title {
+    max-width: 11ch !important;
+    margin: 0 !important;
+  }
+
+  body[data-page="home"] .hero-styled-title span,
+  body[data-page="home"] .hero-styled-title em {
+    width: auto !important;
+    max-width: 100% !important;
+    font-size: clamp(40px, 11.4vw, 56px) !important;
+    line-height: 1.02 !important;
+    letter-spacing: 0 !important;
+    white-space: normal !important;
+  }
+
+  body[data-page="home"] .hero-styled-title em {
+    margin-top: 7px !important;
+  }
+
+  body[data-page="home"] .hero-conversion-actions,
+  body[data-page="home"] .actions.hero-conversion-actions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 13px !important;
+    width: min(100%, 360px) !important;
+    margin-top: 8px !important;
+  }
+
+  body[data-page="home"] .hero-conversion-actions .button,
+  body[data-page="home"] .actions.hero-conversion-actions .button {
+    width: 100% !important;
+    min-height: 58px !important;
+    justify-content: center !important;
+    border-radius: 999px !important;
+    font-size: 16px !important;
+    font-weight: 900 !important;
+  }
+
+  body[data-page="home"] .hero-trust-row {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 7px !important;
+    width: min(100%, 360px) !important;
+    max-width: 360px !important;
+    margin-top: 4px !important;
+  }
+
+  body[data-page="home"] .hero-trust-row span {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 0 0 0 14px !important;
+    color: rgba(255, 255, 255, 0.94) !important;
+    font-size: clamp(13px, 3.55vw, 15px) !important;
+    line-height: 1.2 !important;
+    font-weight: 850 !important;
+    white-space: normal !important;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  body[data-page="home"] .hero-trust-row span::before {
+    content: "" !important;
+    flex: 0 0 auto !important;
+    width: 5px !important;
+    height: 5px !important;
+    margin-right: 10px !important;
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, 0.72) !important;
+  }
+
+  body[data-page="home"] .hero-trust-row span::after {
+    display: none !important;
+    content: none !important;
+  }
+}

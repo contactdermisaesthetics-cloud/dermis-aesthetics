@@ -464,15 +464,15 @@
           <video class="hero-video" data-src="${data.clinic.heroVideo}" muted loop playsinline preload="none" aria-hidden="true"></video>
           <div class="hero-overlay"></div>
           <div class="hero-content">
-            <h1 class="hero-styled-title"><span>Personal skin care</span><em>planned around you</em></h1>
+            <h1 class="hero-styled-title"><span>Personal skin care</span><em>planned for you</em></h1>
             <div class="actions hero-conversion-actions">
               <a class="button primary call-button" href="${data.clinic.phoneUrl}">Book Consultation</a>
               <a class="button secondary whatsapp-button" href="${data.clinic.whatsappUrl}" target="_blank" rel="noopener">${whatsappIcon()} WhatsApp Now</a>
             </div>
             <div class="hero-trust-row" aria-label="Dermis Aesthetics trust highlights">
-              <span>Skin &amp; hair clinic</span>
+              <span>Skin, hair and laser clinic</span>
               <span>Chemmad, Malappuram</span>
-              <span>Assessment-first care</span>
+              <span>Consultation-first treatment planning</span>
             </div>
           </div>
         </section>
@@ -1062,6 +1062,7 @@
     });
   }
 })();
+
 
 
 
