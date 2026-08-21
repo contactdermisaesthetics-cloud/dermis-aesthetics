@@ -10963,64 +10963,6 @@ body[data-page="treatments"] main::before {
     content: none !important;
   }
 }
-/* dermis-about-designed-background-restore-final */
-body[data-page="about"] .about-choice-hero {
-  position: relative !important;
-  background:
-    radial-gradient(circle at 98% 42%, rgba(181, 48, 160, 0.22), transparent 24%),
-    radial-gradient(circle at 58% 4%, rgba(64, 78, 184, 0.16), transparent 22%),
-    linear-gradient(135deg, #041d1f 0%, #082728 50%, #031617 100%) !important;
-  color: #ffffff !important;
-  overflow: hidden !important;
-}
-
-body[data-page="about"] .about-choice-hero::before {
-  content: "" !important;
-  display: block !important;
-  position: absolute !important;
-  inset: 10% -8% auto auto !important;
-  width: 44vw !important;
-  height: 44vw !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  border-radius: 50% !important;
-  transform: rotate(-18deg) !important;
-  pointer-events: none !important;
-  background: transparent !important;
-}
-
-body[data-page="about"] .about-choice-hero::after {
-  content: "" !important;
-  display: block !important;
-  position: absolute !important;
-  left: 36% !important;
-  bottom: 12% !important;
-  width: 12px !important;
-  height: 12px !important;
-  border-radius: 50% !important;
-  background: var(--magenta) !important;
-  box-shadow: 0 0 0 9px rgba(181, 48, 160, 0.12), 0 0 42px rgba(181, 48, 160, 0.5) !important;
-  opacity: 0.85 !important;
-}
-
-body[data-page="about"] .about-choice-copy h1,
-body[data-page="about"] .about-choice-copy h1 em,
-body[data-page="about"] .about-choice-copy h2 {
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
-
-body[data-page="about"] .about-choice-copy p:not(.eyebrow) {
-  color: rgba(255, 255, 255, 0.9) !important;
-}
-
-body[data-page="about"] .about-choice-copy .eyebrow {
-  color: rgba(255, 255, 255, 0.78) !important;
-}
-
-body[data-page="about"] .about-choice-media {
-  background: #dfeeea !important;
-  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.28) !important;
-}
 /* dermis-mobile-trust-row-no-points-final */
 @media (max-width: 760px) {
   body[data-page="home"] .hero-trust-row {
@@ -11053,4 +10995,37 @@ body[data-page="about"] .about-choice-media {
     display: none !important;
     content: none !important;
   }
+}
+/* dermis-about-old-white-format-final */
+body[data-page="about"] .about-choice-hero {
+  background:
+    radial-gradient(circle at 92% 42%, rgba(181, 48, 160, 0.08), transparent 24%),
+    linear-gradient(180deg, #ffffff 0%, #fffefa 100%) !important;
+  color: #1f2937 !important;
+}
+
+body[data-page="about"] .about-choice-hero::before,
+body[data-page="about"] .about-choice-hero::after {
+  display: none !important;
+  content: none !important;
+}
+
+body[data-page="about"] .about-choice-copy h1,
+body[data-page="about"] .about-choice-copy h1 em,
+body[data-page="about"] .about-choice-copy h2 {
+  color: #1f2937 !important;
+  -webkit-text-fill-color: #1f2937 !important;
+}
+
+body[data-page="about"] .about-choice-copy .eyebrow {
+  color: #294ea8 !important;
+}
+
+body[data-page="about"] .about-choice-copy p:not(.eyebrow) {
+  color: #536174 !important;
+}
+
+body[data-page="about"] .about-choice-media {
+  background: #ffffff !important;
+  box-shadow: 0 28px 90px rgba(58, 47, 86, 0.10) !important;
 }
