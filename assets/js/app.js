@@ -461,7 +461,7 @@
     home: () => html`
       <main>
         <section class="hero hero-full-cover">
-          <video class="hero-video" data-src="${data.clinic.heroVideo}" poster="${data.clinic.heroPoster}" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <video class="hero-video" data-src="${data.clinic.heroVideo}" muted loop playsinline preload="none" aria-hidden="true"></video>
           <div class="hero-overlay"></div>
           <div class="hero-content">
             <h1 class="hero-styled-title"><span>Personal skin care</span><em>planned around you</em></h1>
@@ -900,7 +900,7 @@
 
   const heroVideo = document.querySelector(".hero-video");
   if (heroVideo) {
-    const canUseHeroVideo = !navigator.connection?.saveData;
+    const canUseHeroVideo = !navigator.connection?.saveData && window.matchMedia("(min-width: 761px)").matches;
     if (canUseHeroVideo && heroVideo.dataset.src) {
       heroVideo.src = heroVideo.dataset.src;
       heroVideo.setAttribute("autoplay", "");
@@ -1063,6 +1063,7 @@
     });
   }
 })();
+
 
 
 
