@@ -10783,3 +10783,36 @@ body[data-page="treatments"] main::before {
     text-shadow: 0 3px 24px rgba(0, 0, 0, 0.52) !important;
   }
 }
+/* dermis-mobile-hero-title-fit-final */
+@media (max-width: 760px) {
+  body[data-page="home"] .hero-full-cover .hero-content {
+    width: 100% !important;
+    max-width: none !important;
+    padding-left: clamp(18px, 5vw, 28px) !important;
+    padding-right: clamp(18px, 5vw, 28px) !important;
+    overflow: visible !important;
+  }
+
+  body[data-page="home"] .hero-styled-title {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  body[data-page="home"] .hero-styled-title span,
+  body[data-page="home"] .hero-styled-title em {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    font-size: clamp(34px, 10.1vw, 44px) !important;
+    line-height: 1.04 !important;
+  }
+
+  body[data-page="home"] .hero-styled-title em {
+    margin-top: 8px !important;
+  }
+}
