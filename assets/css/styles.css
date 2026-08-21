@@ -10765,3 +10765,9 @@ body[data-page="treatments"] main::before {
     display: none !important;
   }
 }
+/* dermis-mobile-hero-video-restored-final */
+@media (max-width: 760px) {
+  body[data-page="home"] .hero-video {
+    display: block !important;
+  }
+}

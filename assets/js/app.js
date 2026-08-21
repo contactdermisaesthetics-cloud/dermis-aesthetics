@@ -900,7 +900,7 @@
 
   const heroVideo = document.querySelector(".hero-video");
   if (heroVideo) {
-    const canUseHeroVideo = !navigator.connection?.saveData && window.matchMedia("(min-width: 761px)").matches;
+    const canUseHeroVideo = !navigator.connection?.saveData;
     if (canUseHeroVideo && heroVideo.dataset.src) {
       heroVideo.src = heroVideo.dataset.src;
       heroVideo.setAttribute("autoplay", "");
@@ -1063,6 +1063,7 @@
     });
   }
 })();
+
 
 
 
