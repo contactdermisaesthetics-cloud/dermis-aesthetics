@@ -226,7 +226,7 @@
     const featuredReel = {
       title: "Check out our Instagram",
       label: "Testimonial",
-      image: "assets/images/blog-covers/blog-hydra-facial-cover.png",
+      image: "assets/images/instagram-covers/dermis-featured-reel.jpg",
       url: "https://www.instagram.com/reel/DRRWjlyEXaU/",
       text: "Watch our latest Dermis Aesthetics reel and follow us for treatment videos, clinic updates and skin care guidance from our side."
     };
@@ -1063,6 +1063,8 @@
     });
   }
 })();
+
+
 
 
 
