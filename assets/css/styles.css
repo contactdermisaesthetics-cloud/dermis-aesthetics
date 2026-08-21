@@ -10771,3 +10771,15 @@ body[data-page="treatments"] main::before {
     display: block !important;
   }
 }
+/* dermis-mobile-hero-white-title */
+@media (max-width: 760px) {
+  body[data-page="home"] .hero-styled-title,
+  body[data-page="home"] .hero-styled-title span,
+  body[data-page="home"] .hero-styled-title em,
+  body[data-page="home"] .hero-full-cover h1,
+  body[data-page="home"] .hero-copy h1 {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: 0 3px 24px rgba(0, 0, 0, 0.52) !important;
+  }
+}
