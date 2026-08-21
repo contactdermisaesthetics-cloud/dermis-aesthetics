@@ -10871,19 +10871,3 @@ body[data-page="treatments"] main::before {
     display: none !important;
   }
 }
-/* dermis-about-hero-white-background-final */
-body[data-page="about"] .about-choice-hero {
-  background: #ffffff !important;
-  background-image: none !important;
-}
-
-body[data-page="about"] .about-choice-hero::before,
-body[data-page="about"] .about-choice-hero::after {
-  display: none !important;
-  content: none !important;
-}
-
-body[data-page="about"] .about-choice-media,
-body[data-page="about"] .about-choice-media img {
-  background: #ffffff !important;
-}
