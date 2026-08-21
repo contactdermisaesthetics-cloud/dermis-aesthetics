@@ -465,7 +465,6 @@
           <div class="hero-overlay"></div>
           <div class="hero-content">
             <h1 class="hero-styled-title"><span>Personal skin care</span><em>planned around you</em></h1>
-            <p class="hero-short-line">Dermis Aesthetics listens first, checks your concern and explains appropriate skin, hair and laser care clearly.</p>
             <div class="actions hero-conversion-actions">
               <a class="button primary call-button" href="${data.clinic.phoneUrl}">Book Consultation</a>
               <a class="button secondary whatsapp-button" href="${data.clinic.whatsappUrl}" target="_blank" rel="noopener">${whatsappIcon()} WhatsApp Now</a>
@@ -1063,6 +1062,7 @@
     });
   }
 })();
+
 
 
 
