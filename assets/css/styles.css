@@ -11021,3 +11021,36 @@ body[data-page="about"] .about-choice-media {
   background: #dfeeea !important;
   box-shadow: 0 40px 120px rgba(0, 0, 0, 0.28) !important;
 }
+/* dermis-mobile-trust-row-no-points-final */
+@media (max-width: 760px) {
+  body[data-page="home"] .hero-trust-row {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    justify-items: center !important;
+    align-items: center !important;
+    gap: 7px !important;
+    width: min(100%, 360px) !important;
+    max-width: 360px !important;
+    margin: 8px auto 0 !important;
+    padding: 0 !important;
+  }
+
+  body[data-page="home"] .hero-trust-row span {
+    display: block !important;
+    width: 100% !important;
+    padding: 0 !important;
+    text-align: center !important;
+    color: rgba(255, 255, 255, 0.94) !important;
+    font-size: clamp(13px, 3.55vw, 15px) !important;
+    line-height: 1.18 !important;
+    font-weight: 850 !important;
+    white-space: normal !important;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  body[data-page="home"] .hero-trust-row span::before,
+  body[data-page="home"] .hero-trust-row span::after {
+    display: none !important;
+    content: none !important;
+  }
+}
