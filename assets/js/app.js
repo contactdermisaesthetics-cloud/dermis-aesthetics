@@ -136,7 +136,7 @@
       </button>
       <aside class="whatsapp-popup whatsapp-chatbox" aria-live="polite" aria-label="WhatsApp chat preview">
         <div class="whatsapp-chat-header">
-          <div class="whatsapp-chat-avatar">${whatsappIcon()}</div>
+          <div class="whatsapp-chat-avatar"><img src="${data.clinic.logo}" alt="${data.clinic.name} logo"></div>
           <div class="whatsapp-chat-title">
             <strong>Dermis Aesthetics</strong>
           </div>

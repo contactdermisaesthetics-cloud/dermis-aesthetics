@@ -1,4 +1,4 @@
-﻿window.DERMIS_SITE = {
+window.DERMIS_SITE = {
   clinic: {
     name: "Dermis Aesthetics",
     tagline: "Skin | Hair | Laser",
@@ -72,7 +72,7 @@
     {
       title: "PRP Therapy",
       category: "Hair & Regenerative Care",
-      image: "https://unsplash.com/photos/xb-6wrS8wwI/download?force=true",
+      image: "assets/images/treatments/prp-therapy.jpg",
       text: "PRP is discussed for appropriate hair and skin concerns after we understand your condition, history and suitability."
     },
     {

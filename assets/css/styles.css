@@ -11086,3 +11086,23 @@ body[data-page="contact"] .contact-hours-panel .hours-grid span {
     line-height: 1.35 !important;
   }
 }
+/* dermis-mobile-hide-hero-whatsapp-button */
+@media (max-width: 760px) {
+  body[data-page="home"] .hero-conversion-actions .whatsapp-button {
+    display: none !important;
+  }
+}
+/* dermis-whatsapp-logo-avatar */
+.whatsapp-chat-avatar {
+  overflow: hidden;
+  background: #ffffff !important;
+  border: 2px solid rgba(255, 255, 255, 0.78);
+}
+
+.whatsapp-chat-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
+  border-radius: inherit;
+}
