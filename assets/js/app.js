@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   const data = window.DERMIS_SITE;
   const page = document.body.dataset.page || "home";
   const root = document.getElementById("site-root");
@@ -77,7 +77,7 @@
             <a href="${data.clinic.mapUrl}" target="_blank" rel="noopener">Location</a>
           </section>
           <section>
-            <h3>Office</h3>
+            <h3>Clinic address</h3>
             <p>${data.clinic.address},<br>${data.clinic.location}</p>
           </section>
         </div>
@@ -250,7 +250,7 @@
       {
         title: "PRP treatment",
         label: "Treatment Reel",
-        image: "assets/images/blog-covers/blog-hair-fall-cover.png",
+        image: "assets/images/instagram-covers/prp-reel.jpg",
         url: "https://www.instagram.com/reel/DQYtwMPkcSd/",
         text: "A short PRP treatment video from Dermis Aesthetics."
 
@@ -464,7 +464,7 @@
           <video class="hero-video" data-src="${data.clinic.heroVideo}" muted loop playsinline preload="none" aria-hidden="true"></video>
           <div class="hero-overlay"></div>
           <div class="hero-content">
-            <h1 class="hero-styled-title"><span>Personal skin care</span><em>planned for you</em></h1>
+            <h1 class="hero-styled-title"><span>Reveal Your Best Skin.</span><em>Rediscover Your Confidence.</em></h1>
             <div class="actions hero-conversion-actions">
               <a class="button primary call-button" href="${data.clinic.phoneUrl}">Book Consultation</a>
               <a class="button secondary whatsapp-button" href="${data.clinic.whatsappUrl}" target="_blank" rel="noopener">${whatsappIcon()} WhatsApp Now</a>
@@ -472,7 +472,7 @@
             <div class="hero-trust-row" aria-label="Dermis Aesthetics trust highlights">
               <span>Skin, hair and laser clinic</span>
               <span>Chemmad, Malappuram</span>
-              <span>Consultation-first treatment planning</span>
+
             </div>
           </div>
         </section>
@@ -570,8 +570,7 @@
             <article class="team-profile primary-profile">
               <div class="team-avatar photo-avatar"><img src="assets/images/team/dr-raoof-malayil.png" alt="Dr. Raoof Malayil, Clinic Lead at Dermis Aesthetics"></div>
               <h3>Dr. Raoof Malayil</h3>
-              <p>MBBS, Clinic Lead</p>
-              <span>Aesthetic skin and hair care guidance</span>
+              <p>Consultant dermatologist</p>
             </article>
           </div></section>
 
@@ -761,10 +760,6 @@
             <article class="contact-standard-card">
               <h2>Clinic Details</h2>
               <div class="contact-detail-list">
-                <div>
-                  <span>Clinic</span>
-                  <strong>${data.clinic.name}</strong>
-                </div>
                 <div>
                   <span>Address</span>
                   <p>${data.clinic.address}<br>${data.clinic.location}</p>
